@@ -1,0 +1,8 @@
+google-adk
+python-dotenv
+pydantic
+pandas
+numpy
+fastapi
+uvicorn
+requests

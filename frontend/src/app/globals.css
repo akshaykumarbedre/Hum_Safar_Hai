@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 13% 96%;
+    --foreground: 240 10% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
+    --primary: 267 100% 84%;
+    --primary-foreground: 267 100% 20%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 256 60% 59%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 256 60% 59%;
+    --radius: 0.8rem;
+    --chart-1: 256 60% 59%;
+    --chart-2: 267 100% 84%;
+    --chart-3: 250 60% 70%;
+    --chart-4: 260 70% 65%;
+    --chart-5: 270 80% 75%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 15%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-accent: 255 13% 96%;
+    --sidebar-accent-foreground: 240 10% 15%;
+    --sidebar-primary: 256 60% 59%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-ring: 256 60% 59%;
+  }
+ 
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 267 100% 84%;
+    --primary-foreground: 267 100% 20%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 256 60% 59%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 256 60% 59%;
+    --chart-1: 256 60% 59%;
+    --chart-2: 267 100% 84%;
+    --chart-3: 250 60% 70%;
+    --chart-4: 260 70% 65%;
+    --chart-5: 270 80% 75%;
+
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-primary: 256 60% 59%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-ring: 256 60% 59%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

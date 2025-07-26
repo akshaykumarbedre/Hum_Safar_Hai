@@ -1,0 +1,4038 @@
+
+curl -X 'GET' \
+  'http://localhost:8000/tools/net_worth/5555555555' \
+  -H 'accept: application/json'
+  
+  
+  {
+  "get_asset_breakdown": [
+    {
+      "asset_type": "ASSET_TYPE_MUTUAL_FUND",
+      "asset_name": "Mutual Funds",
+      "value": 177605,
+      "currency": "INR",
+      "currency_symbol": "₹",
+      "formatted_value": "₹177,605.00"
+    },
+    {
+      "asset_type": "ASSET_TYPE_EPF",
+      "asset_name": "Employee Provident Fund (EPF)",
+      "value": 211111,
+      "currency": "INR",
+      "currency_symbol": "₹",
+      "formatted_value": "₹211,111.00"
+    },
+    {
+      "asset_type": "ASSET_TYPE_INDIAN_SECURITIES",
+      "asset_name": "Indian Securities",
+      "value": 200642,
+      "currency": "INR",
+      "currency_symbol": "₹",
+      "formatted_value": "₹200,642.00"
+    },
+    {
+      "asset_type": "ASSET_TYPE_SAVINGS_ACCOUNTS",
+      "asset_name": "Savings Accounts",
+      "value": 740841,
+      "currency": "INR",
+      "currency_symbol": "₹",
+      "formatted_value": "₹740,841.00"
+    },
+    {
+      "asset_type": "ASSET_TYPE_US_SECURITIES",
+      "asset_name": "US Securities",
+      "value": 30598,
+      "currency": "INR",
+      "currency_symbol": "₹",
+      "formatted_value": "₹30,598.00"
+    }
+  ],
+  "get_core_net_worth_snapshot": {
+    "total_net_worth": 1360797,
+    "snapshot_date": "2025-07-27",
+    "assets": {
+      "Mutual Funds": 177605,
+      "EPF": 211111,
+      "Indian Securities": 200642,
+      "Savings Accounts": 740841,
+      "US Securities": 30598
+    },
+    "liabilities": {}
+  },
+  "get_epf_summary": {
+    "status": "SUCCESS",
+    "accounts": [
+      {
+        "employer_name": "Unknown Employer",
+        "member_id": "N/A",
+        "current_balance": 0,
+        "employee_contribution": 0,
+        "formatted_balance": "₹0",
+        "formatted_contribution": "₹0"
+      }
+    ],
+    "total_balance": 0,
+    "total_employee_contribution": 0,
+    "formatted_total_balance": "₹0",
+    "formatted_total_contribution": "₹0",
+    "accounts_count": 1
+  },
+  "get_liability_breakdown": [],
+  "get_net_worth_summary": {
+    "status": "SUCCESS",
+    "total_net_worth": 1360797,
+    "currency": "INR",
+    "currency_symbol": "₹",
+    "formatted_value": "₹1,360,797.00"
+  },
+  "get_portfolio_diversification": {
+    "status": "SUCCESS",
+    "total_portfolio_value": 1360797,
+    "formatted_total_value": "₹1,360,797",
+    "asset_allocation": [
+      {
+        "category": "Cash & Bank",
+        "amount": 740841,
+        "percentage": 54.44169850462634,
+        "formatted_amount": "₹740,841",
+        "formatted_percentage": "54.4%"
+      },
+      {
+        "category": "EPF",
+        "amount": 211111,
+        "percentage": 15.513776117966163,
+        "formatted_amount": "₹211,111",
+        "formatted_percentage": "15.5%"
+      },
+      {
+        "category": "Indian Stocks",
+        "amount": 200642,
+        "percentage": 14.744447555366449,
+        "formatted_amount": "₹200,642",
+        "formatted_percentage": "14.7%"
+      },
+      {
+        "category": "Mutual Funds",
+        "amount": 177605,
+        "percentage": 13.051542588644743,
+        "formatted_amount": "₹177,605",
+        "formatted_percentage": "13.1%"
+      },
+      {
+        "category": "US Stocks",
+        "amount": 30598,
+        "percentage": 2.248535233396311,
+        "formatted_amount": "₹30,598",
+        "formatted_percentage": "2.2%"
+      }
+    ],
+    "mf_allocation": [],
+    "diversification_score": {
+      "status": "MODERATE",
+      "largest_allocation_percentage": 54.44169850462634,
+      "message": "Portfolio has moderate diversification."
+    },
+    "total_mf_value": 0,
+    "asset_categories_count": 5
+  },
+  "get_processed_net_worth_data": {
+    "assets_summary": {
+      "total_assets": 1360797,
+      "formatted_total_assets": "₹1,360,797.00",
+      "asset_count": 5,
+      "asset_allocation_percentages": {
+        "Mutual Funds": {
+          "amount": 177605,
+          "percentage": 13.051542588644743
+        },
+        "Employee Provident Fund (EPF)": {
+          "amount": 211111,
+          "percentage": 15.513776117966163
+        },
+        "Indian Securities": {
+          "amount": 200642,
+          "percentage": 14.744447555366449
+        },
+        "Savings Accounts": {
+          "amount": 740841,
+          "percentage": 54.44169850462634
+        },
+        "US Securities": {
+          "amount": 30598,
+          "percentage": 2.248535233396311
+        }
+      },
+      "detailed_holdings": [
+        {
+          "asset_type": "ASSET_TYPE_MUTUAL_FUND",
+          "asset_name": "Mutual Funds",
+          "value": 177605,
+          "currency": "INR",
+          "currency_symbol": "₹",
+          "formatted_value": "₹177,605.00"
+        },
+        {
+          "asset_type": "ASSET_TYPE_EPF",
+          "asset_name": "Employee Provident Fund (EPF)",
+          "value": 211111,
+          "currency": "INR",
+          "currency_symbol": "₹",
+          "formatted_value": "₹211,111.00"
+        },
+        {
+          "asset_type": "ASSET_TYPE_INDIAN_SECURITIES",
+          "asset_name": "Indian Securities",
+          "value": 200642,
+          "currency": "INR",
+          "currency_symbol": "₹",
+          "formatted_value": "₹200,642.00"
+        },
+        {
+          "asset_type": "ASSET_TYPE_SAVINGS_ACCOUNTS",
+          "asset_name": "Savings Accounts",
+          "value": 740841,
+          "currency": "INR",
+          "currency_symbol": "₹",
+          "formatted_value": "₹740,841.00"
+        },
+        {
+          "asset_type": "ASSET_TYPE_US_SECURITIES",
+          "asset_name": "US Securities",
+          "value": 30598,
+          "currency": "INR",
+          "currency_symbol": "₹",
+          "formatted_value": "₹30,598.00"
+        }
+      ]
+    },
+    "liabilities_summary": {
+      "total_liabilities": 0,
+      "formatted_total_liabilities": "₹0.00",
+      "liability_count": 0,
+      "liability_allocation_percentages": {},
+      "detailed_liabilities": []
+    },
+    "epf_summary": {
+      "status": "SUCCESS",
+      "accounts": [
+        {
+          "employer_name": "Unknown Employer",
+          "member_id": "N/A",
+          "current_balance": 0,
+          "employee_contribution": 0,
+          "formatted_balance": "₹0",
+          "formatted_contribution": "₹0"
+        }
+      ],
+      "total_balance": 0,
+      "total_employee_contribution": 0,
+      "formatted_total_balance": "₹0",
+      "formatted_total_contribution": "₹0",
+      "accounts_count": 1
+    },
+    "portfolio_analysis": {
+      "status": "SUCCESS",
+      "total_portfolio_value": 1360797,
+      "formatted_total_value": "₹1,360,797",
+      "asset_allocation": [
+        {
+          "category": "Cash & Bank",
+          "amount": 740841,
+          "percentage": 54.44169850462634,
+          "formatted_amount": "₹740,841",
+          "formatted_percentage": "54.4%"
+        },
+        {
+          "category": "EPF",
+          "amount": 211111,
+          "percentage": 15.513776117966163,
+          "formatted_amount": "₹211,111",
+          "formatted_percentage": "15.5%"
+        },
+        {
+          "category": "Indian Stocks",
+          "amount": 200642,
+          "percentage": 14.744447555366449,
+          "formatted_amount": "₹200,642",
+          "formatted_percentage": "14.7%"
+        },
+        {
+          "category": "Mutual Funds",
+          "amount": 177605,
+          "percentage": 13.051542588644743,
+          "formatted_amount": "₹177,605",
+          "formatted_percentage": "13.1%"
+        },
+        {
+          "category": "US Stocks",
+          "amount": 30598,
+          "percentage": 2.248535233396311,
+          "formatted_amount": "₹30,598",
+          "formatted_percentage": "2.2%"
+        }
+      ],
+      "mf_allocation": [],
+      "diversification_score": {
+        "status": "MODERATE",
+        "largest_allocation_percentage": 54.44169850462634,
+        "message": "Portfolio has moderate diversification."
+      },
+      "total_mf_value": 0,
+      "asset_categories_count": 5
+    },
+    "net_worth_overview": {
+      "net_worth_data": {
+        "status": "SUCCESS",
+        "total_net_worth": 1360797,
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "formatted_value": "₹1,360,797.00"
+      },
+      "calculated_net_worth": 1360797,
+      "debt_to_asset_ratio": 0,
+      "financial_health_indicators": {
+        "positive_net_worth": true,
+        "low_debt_ratio": true,
+        "diversified_portfolio": true
+      }
+    },
+    "data_completeness": {
+      "net_worth_available": true,
+      "assets_available": true,
+      "liabilities_available": false,
+      "epf_available": true,
+      "portfolio_analysis_available": true
+    }
+  }
+}
+
+
+Curl
+
+curl -X 'GET' \
+  'http://localhost:8000/tools/expense/5555555555' \
+  -H 'accept: application/json'
+{
+  "get_core_transaction_data": {
+    "transactions": [
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-MR MOHAMMED ZAHEERUL-8884442498@YBL-IDIB000B041-118513918994-PAYME...",
+        "amt": 80072,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-104264587845-PAYMENT FROM PHONE",
+        "amt": 80558,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-CRED-CRED@AXISB-UTIB0000114-030309272514-CREDIT CARD BILL P",
+        "amt": 80415,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT...",
+        "amt": 80408,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "CHQ PAID-MICR CTS-NO-SR POST MASTER  HPO",
+        "amt": 80631,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SATYA NARAYAN BEHER-8328853083@YBL-SBIN0002112-126364354416-PAYMEN...",
+        "amt": 80273,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-BHARATPEMERCHANT-BHARATPE.0850487682@ICICI-ICIC0000001-03170360387...",
+        "amt": 80870,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SRI BRAHMALINGESHWAR-PAYTMQR28100505010113CV8CXTZUHG@PAYTM-PYTM012...",
+        "amt": 80545,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SIDDHANT KUMAR-SIDDHANTKUMAR171@DBS-DBSS0IN0811-101012491647-AMAZO...",
+        "amt": 80581,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-CRED-CRED@AXISB-UTIB0000114-112115658127-PAYMENT ON CRED",
+        "amt": 80208,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-HOTEL SAVITHA-PAYTMQR28100505010113DKDV819USD@PAYTM-PYTM0123456-02...",
+        "amt": 80391,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-RANGANATHA-9964509119@YBL-IBKL0000693-031841592437-PAYMENT FROM PH...",
+        "amt": 80642,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI RET-2020-04-16-010709165412",
+        "amt": 80838,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+        "amt": 80951,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "IMPS-009401112115-SANDIP PATIL-CNRB-XXXXXXXXX7346-RENT",
+        "amt": 80334,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-NIPUN GUPTA-7NIPUN7-1@OKICICI-KKBK0000430-003314881593-RENT",
+        "amt": 80167,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-PREETHI CHIDANANDA-PREETHI.CHIDANANDA-1@OKAXIS-HDFC0000053-1010116...",
+        "amt": 80314,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SUDHANVA MADHURAO RA-7760615177@YBL-HDFC0000877-015456371091-PAYME...",
+        "amt": 80443,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-AISHWARYA MINI MART-Q09390218@YBL-YESB0YBLUPI-120009291644-PAYMENT...",
+        "amt": 80479,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "NEFT DR-IDIB000S176-PRATEEK PATNAIK-NETBANK, MUM-N339201328608485-LOAN...",
+        "amt": 80994,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-DUNZO-DUNZO.PAYU@AXISBANK-UTIB0000000-108385554342-PAYMENT FROM PH...",
+        "amt": 80925,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-XXXXXX4811-IDIB0000001-101911439713-PAYMENT FROM PHONE",
+        "amt": 80714,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+        "amt": 80393,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-LAZYPAY-LAZYPAY@AXISBANK-UTIB0000000-010716764929-LAZY PAY REPAYME...",
+        "amt": 80463,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+        "amt": 80267,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-DIVYA DAS-DIVYADAS91@OKHDFCBANK-HDFC0002777-016519304334-UPI",
+        "amt": 80134,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT ...",
+        "amt": 80930,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "NEFT DR-IDIB000S176-PRATEEK PATNAIK-NETBANK, MUM-N276201262219272-EMI",
+        "amt": 80643,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-G V MANJUNATHA-9945481125@YBL-HDFC0000714-025740040637-R806",
+        "amt": 80456,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010666437303-WALLET TOPUP",
+        "amt": 80075,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "50400204367581- RD INSTALLMENT-NOV 2020",
+        "amt": 80963,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511...",
+        "amt": 80476,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-126041436693-PAYMENT FOR C9725A",
+        "amt": 80514,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-XXXXXX6863-SBIN0040403-009512193461-PAYMENT FROM PHONE",
+        "amt": 80050,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-AIRTEL HDFC UPI MAST-AIRTELIN.RZP@AXISBANK-UTIB0001507-10554392064...",
+        "amt": 80711,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SONYLIV-SONYLIV.RZP@AXISBANK-UTIB0001507-121615436535- SONY PICTUR...",
+        "amt": 80560,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511...",
+        "amt": 80493,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-CREDCLUB-CREDCLUB@ICICI-ICIC0000001-036217802839-CREDIT CARD BILL ...",
+        "amt": 80782,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SYED YOUSUF-9113296096@YBL-KKBK0008058-015252177333-PAYMENT FROM P...",
+        "amt": 80417,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-UBER INDIA SYSTEMS P-UBERRIDES@HDFCBANK-HDFC0000499-108051658151-P...",
+        "amt": 80978,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-019923935948-CREDIT CA...",
+        "amt": 80051,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-XXXXXX9746-HDFC0000001-028779399607-PAYMENT FROM PHONE",
+        "amt": 80961,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-032522377475-TE...",
+        "amt": 80786,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": ".IMPS P2P 029015173519#16/10/2020 161020-MIR2030035732768",
+        "amt": 80267,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SRI GANESH FRUIT JUI-PAYTMQR2810050501013Q7XKZT6R7PB@PAYTM-PYTM012...",
+        "amt": 80099,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-PRATEEK PATNAIK-9686165933@YBL-HDFC0000523-106183952786-PAYMENT FR...",
+        "amt": 80550,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-AIRTEL HDFC UPI MAST-AIRTELIN.RZP@AXISBANK-UTIB0001507-10462574356...",
+        "amt": 80827,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-PRATEEK PATNAIK-9686165933@YBL-HDFC0000523-033909369796-PAYMENT FR...",
+        "amt": 80519,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-030878345040-WALLET TOPUP",
+        "amt": 80690,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-CREDCLUB-CREDCLUB@ICICI-ICIC0000001-033624490024-PAYMENT FROM PHON...",
+        "amt": 80638,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-009400589368-CREDIT CA...",
+        "amt": 80677,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SHEETAL RAVINDRA DA-SHEETAL.DAMBAL@OKSBI-SBIN0010411-109209224698-...",
+        "amt": 80085,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-RAVISHANKAR-Q78015288@YBL-YESB0YBLUPI-123535728297-PAYMENT FROM PH...",
+        "amt": 80267,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-HARDIK  AGRAWAL-9971488189.NIYO@IDFCBANK-IDFB0040101-031108651605-...",
+        "amt": 80156,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-UBER INDIA SYSTEMS P-UBERRIDES@HDFCBANK-HDFC0000499-105117853141-C...",
+        "amt": 80565,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-ABDESH KUMAR YADAV-PAYTMQR28100505010117UM15XIYV9E@PAYTM-PYTM01234...",
+        "amt": 80016,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-TREND AUTOMOBILES-105302393@CNRB-CNRB0001074-035222057565-PAYMENT ...",
+        "amt": 80287,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "CREDIT INTEREST CAPITALISED",
+        "amt": 80768,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-MAHESH S-Q60573690@YBL-KKBK0008043-104558209248-PAYMENT FROM PHONE",
+        "amt": 80083,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101057836776-PAYMENT FROM PHONE",
+        "amt": 80984,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "ACH C- TCS1STINTDIV310720-C2003055611208",
+        "amt": 80805,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-AISHWARYA MINI MART-Q36365093@YBL-YESB0YBLUPI-104642349580-PAYMENT...",
+        "amt": 80559,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-DUNZO DIGITAL PRIVAT-DUNZO1.PAYU@INDUS-INDB0002201-104767620300-PA...",
+        "amt": 80050,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-PHONEPE-BILLDESKPP@YBL-YESB0YBLUPI-022533819900-PAYMENT FOR CATEGO",
+        "amt": 80849,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SAFE GOLD-SAFEGOLD@YBL-YESB0YBLUPI-016220690358-PAYMENT FOR CATEGO",
+        "amt": 80037,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TR...",
+        "amt": 80309,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-DIVYA DAS-DIVYADAS91@OKHDFCBANK-HDFC0002777-016519304334-UPI",
+        "amt": 80941,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SUDHANVA MADHURAO RA-7760615177@YBL-HDFC0000877-019884154921-PAYME...",
+        "amt": 80824,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-105086855192-PAYMENT FROM PHONE",
+        "amt": 80632,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-104139133337-PAYMENT FROM PHONE",
+        "amt": 80291,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-CRED-CRED@AXISB-UTIB0000114-104817335968-CREDIT CARD BILL P",
+        "amt": 80273,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-GET SIMPL TECHNOLOGI-SIMPL@AXISBANK-UTIB0000100-035714694623-SIMPL",
+        "amt": 80430,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-PINTU GUPTA-PAYTMQR281005050101LK22YFGX0QRX@PAYTM-PYTM0123456-1274...",
+        "amt": 80063,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SRI GANESH FRUIT JUI-PAYTMQR2810050501011EQANBWQ4ZSL@PAYTM-PYTM012...",
+        "amt": 80422,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-PARSURAMPURAM SRINIV-6370242870@YBL-ORBC0101157-021633611931-PAYME...",
+        "amt": 80203,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "IMPS-104311102929-SANDIP PATIL-CNRB-XXXXXXXXX7346-RENT",
+        "amt": 80754,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "CREDIT INTEREST CAPITALISED",
+        "amt": 80304,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010730656553-WALLET TOPUP",
+        "amt": 80634,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-DENTIS ZONE MULTISPE-DENTISZONEMULTISPECI.28121798@HDFCBANK-HDFC00...",
+        "amt": 80952,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-PARSURAMPURAM SRINIV-PSS.PRASAD@YBL-PUNB0115710-104315466518-PAYME...",
+        "amt": 80880,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-123674232023-PAYMENT FOR E54EEA",
+        "amt": 80295,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SAAPAAD-PAYTMQR28100505010117026OE8C6MV@PAYTM-PYTM0123456-02146499...",
+        "amt": 80135,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-SANGEETHA M-SANGEETHA28.SM@OKSBI-VIJB0001394-022418310954-UPI",
+        "amt": 80796,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": ".IMPS P2P 029117302320#17/10/2020 181020-MIR2030136992354",
+        "amt": 80015,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-ANKUR DHIR-ANKURDHIR111@OKHDFCBANK-HDFC0001266-030110973590-UPI",
+        "amt": 80205,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "20201222147613830340/PAYTMPAYTMMONEYMUTUA",
+        "amt": 80935,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT ...",
+        "amt": 80549,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-RAMA SUDHAKAR PATNAI-9414077884@YBL-SBIN0020702-034066225154-PAYME...",
+        "amt": 80212,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-UBER INDIA SYSTEMS P-UBERRIDES@HDFCBANK-HDFC0000499-105217478239-C...",
+        "amt": 80372,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-09",
+        "desc": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-10203830265...",
+        "amt": 80502,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-027200895296-CREDIT CA...",
+        "amt": 80203,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT...",
+        "amt": 80547,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "SALARY FROM MEDISYNC HEALTH MANAGEMENT SERVICES P L",
+        "amt": 80935,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TR...",
+        "amt": 80687,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "NEFT CR-CITI0100000-FTMF REDEMPTION ACCOUNT-PRATEEK PATNAIK-CITIN20100...",
+        "amt": 80304,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+        "amt": 80713,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-CRED-CREDCC@YESBANK-YESB0000022-018492205316-CREDIT CARD BILL P",
+        "amt": 80852,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-PHONEPE-BILLDESKPP@YBL-YESB0YBLUPI-104831200709-PAYMENT FROM PHONE",
+        "amt": 80572,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "INST-ALERT CHG INC GST OCT-DEC2020-MIR2101402042013",
+        "amt": 80448,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-PRADIP KUMAR -PADDI6877@OKHDFCBANK-SBIN0040171-122195037544-UPI",
+        "amt": 80538,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "IMPS-018422244664-ADITYA BIRLA SUN LIF-HDFC-XXXXXXXX3578-RD3192534-103...",
+        "amt": 80741,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "50200015847022SALAUG 20 108621",
+        "amt": 80994,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-PARSURAMPURAM SRINIV-6370242870@YBL-ORBC0101157-031627719147-PAYME...",
+        "amt": 80978,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-CRED-CRED@AXISB-UTIB0000114-103219881988-CREDIT CARD BILL P",
+        "amt": 80326,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-023113790606-CREDIT CA...",
+        "amt": 80769,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-PINTU GUPTA-PAYTMQR281005050101LK22YFGX0QRX@PAYTM-PYTM0123456-1274...",
+        "amt": 80532,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "NWD-438624XXXXXX3427-08887405-BANGALORE MET",
+        "amt": 80278,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-EURONETGPAY-EURONETGPAY.PAY@ICICI-ICIC0000001-035512416953-UPI",
+        "amt": 80470,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "CREDIT INTEREST CAPITALISED",
+        "amt": 80806,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-10203830265...",
+        "amt": 80788,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-012016383521-CREDIT CA...",
+        "amt": 80544,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-MR PRATEEK PATNAIK-PATNAIK.PRATEEK@YBL-IDIB000S176-033939878475-PA...",
+        "amt": 80135,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-SUMAN  SWAROOP-SUMANSWAR12@OKSBI-SBIN0006652-006006641672-PETROL",
+        "amt": 80652,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-009400741981-CREDIT CA...",
+        "amt": 80939,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-GIRRAJ MEDICAL STORE-PAYTMQR28100505010111A10BLF7BGA@PAYTM-PYTM012...",
+        "amt": 80657,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-SPORTA TECHNOLOGIES -FANCODE.PAYU@INDUS-INDB0002201-036509119466-U...",
+        "amt": 80772,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-SHANTI MANTRI-9652458674@YBL-SBIN0020380-101654249219-PAYMENT FROM...",
+        "amt": 80134,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-HARDIK  AGRAWAL-HARDIK0406AGRAWAL@OKSBI-SBIN0030261-028317839465-S...",
+        "amt": 80260,
+        "type": "CR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010720599609-WALLET TOPUP",
+        "amt": 80776,
+        "type": "DR"
+      },
+      {
+        "date": "2025-07-07",
+        "desc": "UPI-RAMA SUDHAKAR PATNAI-9414077884@YBL-SBIN0020702-104321119119-PAYME...",
+        "amt": 80163,
+        "type": "CR"
+      },
+      {
+        "date": "2025-06-27",
+        "desc": "UPI-BHARATPE MERCHANT-BHARATPE90718510059@YESBANKLTD-YESB0000004-01724...",
+        "amt": 80927,
+        "type": "CR"
+      },
+      {
+        "date": "2025-06-27",
+        "desc": "UPI-CREDCLUB-CREDCLUB@ICICI-ICIC0000001-030519746862-CREDIT CARD BILL ...",
+        "amt": 80207,
+        "type": "DR"
+      },
+      {
+        "date": "2025-06-27",
+        "desc": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+        "amt": 80445,
+        "type": "DR"
+      },
+      {
+        "date": "2025-06-27",
+        "desc": "UPI-HDFC BANK LTD FASTAG-NETC.KA01ML2012@HDFCBANK-HDFC0009956-01541464...",
+        "amt": 80905,
+        "type": "CR"
+      },
+      {
+        "date": "2025-06-27",
+        "desc": "50400204367581- RD INSTALLMENT-DEC 2020",
+        "amt": 80331,
+        "type": "DR"
+      },
+      {
+        "date": "2025-06-27",
+        "desc": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-011456885597-WALLET TOPUP",
+        "amt": 80030,
+        "type": "CR"
+      },
+      {
+        "date": "2025-05-27",
+        "desc": "UPI-UBER INDIA SYSTEMS P-UBERRIDES@HDFCBANK-HDFC0000499-105117853141-C...",
+        "amt": 80027,
+        "type": "CR"
+      },
+      {
+        "date": "2025-05-27",
+        "desc": "UPI-HARDIK  AGRAWAL-HARDIK0406AGRAWAL@OKSBI-SBIN0030261-028317839465-S...",
+        "amt": 80978,
+        "type": "DR"
+      },
+      {
+        "date": "2025-05-27",
+        "desc": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+        "amt": 80113,
+        "type": "DR"
+      },
+      {
+        "date": "2025-05-27",
+        "desc": "UPI-PARASHIVAMURTHY K S-9206954818@YBL-SYNB0001562-014438416783-PAYMEN...",
+        "amt": 80298,
+        "type": "CR"
+      },
+      {
+        "date": "2025-05-27",
+        "desc": "UPI-DIVYA DAS-9686097437@YBL-HDFC0002777-012848830297-PAYMENT FROM PHO...",
+        "amt": 80339,
+        "type": "CR"
+      },
+      {
+        "date": "2025-05-27",
+        "desc": "UPI-RAJESH-PAYTMQR28100505010115KDL9E9P7TK@PAYTM-PYTM0123456-031624391...",
+        "amt": 80847,
+        "type": "DR"
+      }
+    ]
+  },
+  "get_income_sources": {
+    "status": "SUCCESS",
+    "income_sources": {
+      "Likely Salary/Large Credit": 4989117,
+      "Salary/Company Credit": 161929,
+      "Investment Income": 161110
+    },
+    "income_breakdown": [
+      {
+        "category": "Likely Salary/Large Credit",
+        "amount": 4989117,
+        "formatted_amount": "₹4,989,117",
+        "percentage_of_total": 93.91887211143649
+      },
+      {
+        "category": "Salary/Company Credit",
+        "amount": 161929,
+        "formatted_amount": "₹161,929",
+        "percentage_of_total": 3.0482726787391035
+      },
+      {
+        "category": "Investment Income",
+        "amount": 161110,
+        "formatted_amount": "₹161,110",
+        "percentage_of_total": 3.0328552098244104
+      }
+    ],
+    "total_income": 5312156,
+    "formatted_total_income": "₹5,312,156",
+    "monthly_average": 1770718.6666666667,
+    "formatted_monthly_average": "₹1,770,719",
+    "analysis_period_days": 90,
+    "largest_income_source": "Likely Salary/Large Credit",
+    "income_diversity": 3
+  },
+  "get_processed_transaction_data": {
+    "debit_transactions_categorized": {
+      "Miscellaneous": [
+        {
+          "amount": 80072,
+          "narration": "UPI-MR MOHAMMED ZAHEERUL-8884442498@YBL-IDIB000B041-118513918994-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,072"
+        },
+        {
+          "amount": 80273,
+          "narration": "UPI-SATYA NARAYAN BEHER-8328853083@YBL-SBIN0002112-126364354416-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,273"
+        },
+        {
+          "amount": 80545,
+          "narration": "UPI-SRI BRAHMALINGESHWAR-PAYTMQR28100505010113CV8CXTZUHG@PAYTM-PYTM0123456-033363246388-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,545"
+        },
+        {
+          "amount": 80687,
+          "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TRANSFER",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,687"
+        },
+        {
+          "amount": 80304,
+          "narration": "NEFT CR-CITI0100000-FTMF REDEMPTION ACCOUNT-PRATEEK PATNAIK-CITIN20100690483",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,304"
+        },
+        {
+          "amount": 80538,
+          "narration": "UPI-PRADIP KUMAR -PADDI6877@OKHDFCBANK-SBIN0040171-122195037544-UPI",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,538"
+        },
+        {
+          "amount": 80642,
+          "narration": "UPI-RANGANATHA-9964509119@YBL-IBKL0000693-031841592437-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,642"
+        },
+        {
+          "amount": 80951,
+          "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,951"
+        },
+        {
+          "amount": 80167,
+          "narration": "UPI-NIPUN GUPTA-7NIPUN7-1@OKICICI-KKBK0000430-003314881593-RENT",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,167"
+        },
+        {
+          "amount": 80314,
+          "narration": "UPI-PREETHI CHIDANANDA-PREETHI.CHIDANANDA-1@OKAXIS-HDFC0000053-101011617232-UPI",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,314"
+        },
+        {
+          "amount": 80479,
+          "narration": "UPI-AISHWARYA MINI MART-Q09390218@YBL-YESB0YBLUPI-120009291644-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,479"
+        },
+        {
+          "amount": 80925,
+          "narration": "UPI-DUNZO-DUNZO.PAYU@AXISBANK-UTIB0000000-108385554342-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,925"
+        },
+        {
+          "amount": 80463,
+          "narration": "UPI-LAZYPAY-LAZYPAY@AXISBANK-UTIB0000000-010716764929-LAZY PAY REPAYMENT",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,463"
+        },
+        {
+          "amount": 80930,
+          "narration": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,930"
+        },
+        {
+          "amount": 80456,
+          "narration": "UPI-G V MANJUNATHA-9945481125@YBL-HDFC0000714-025740040637-R806",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,456"
+        },
+        {
+          "amount": 80476,
+          "narration": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511896593-SIMPL REPAYMENT TO",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,476"
+        },
+        {
+          "amount": 80560,
+          "narration": "UPI-SONYLIV-SONYLIV.RZP@AXISBANK-UTIB0001507-121615436535- SONY PICTURES NET",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,560"
+        },
+        {
+          "amount": 80493,
+          "narration": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511896593-SIMPL REPAYMENT TO",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,493"
+        },
+        {
+          "amount": 80417,
+          "narration": "UPI-SYED YOUSUF-9113296096@YBL-KKBK0008058-015252177333-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,417"
+        },
+        {
+          "amount": 80978,
+          "narration": "UPI-HARDIK  AGRAWAL-HARDIK0406AGRAWAL@OKSBI-SBIN0030261-028317839465-SAVINGS",
+          "date": "2025-05-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,978"
+        },
+        {
+          "amount": 80786,
+          "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-032522377475-TEST",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,786"
+        },
+        {
+          "amount": 80099,
+          "narration": "UPI-SRI GANESH FRUIT JUI-PAYTMQR2810050501013Q7XKZT6R7PB@PAYTM-PYTM0123456-108157562234-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,099"
+        },
+        {
+          "amount": 80690,
+          "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-030878345040-WALLET TOPUP",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,690"
+        },
+        {
+          "amount": 80445,
+          "narration": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+          "date": "2025-06-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,445"
+        },
+        {
+          "amount": 80113,
+          "narration": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+          "date": "2025-05-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,113"
+        },
+        {
+          "amount": 80156,
+          "narration": "UPI-HARDIK  AGRAWAL-9971488189.NIYO@IDFCBANK-IDFB0040101-031108651605-UPI",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,156"
+        },
+        {
+          "amount": 80083,
+          "narration": "UPI-MAHESH S-Q60573690@YBL-KKBK0008043-104558209248-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,083"
+        },
+        {
+          "amount": 80741,
+          "narration": "IMPS-018422244664-ADITYA BIRLA SUN LIF-HDFC-XXXXXXXX3578-RD3192534-1038644104",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,741"
+        },
+        {
+          "amount": 80978,
+          "narration": "UPI-PARSURAMPURAM SRINIV-6370242870@YBL-ORBC0101157-031627719147-PAYMENT FROM PHONE",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,978"
+        },
+        {
+          "amount": 80532,
+          "narration": "UPI-PINTU GUPTA-PAYTMQR281005050101LK22YFGX0QRX@PAYTM-PYTM0123456-127404613871-PAYMENT FROM PHONE",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,532"
+        },
+        {
+          "amount": 80470,
+          "narration": "UPI-EURONETGPAY-EURONETGPAY.PAY@ICICI-ICIC0000001-035512416953-UPI",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,470"
+        },
+        {
+          "amount": 80788,
+          "narration": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-102038302659-PAYMENT FROM PHONE",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,788"
+        },
+        {
+          "amount": 80805,
+          "narration": "ACH C- TCS1STINTDIV310720-C2003055611208",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,805"
+        },
+        {
+          "amount": 80849,
+          "narration": "UPI-PHONEPE-BILLDESKPP@YBL-YESB0YBLUPI-022533819900-PAYMENT FOR CATEGO",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,849"
+        },
+        {
+          "amount": 80309,
+          "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TRANSFER",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,309"
+        },
+        {
+          "amount": 80941,
+          "narration": "UPI-DIVYA DAS-DIVYADAS91@OKHDFCBANK-HDFC0002777-016519304334-UPI",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,941"
+        },
+        {
+          "amount": 80135,
+          "narration": "UPI-MR PRATEEK PATNAIK-PATNAIK.PRATEEK@YBL-IDIB000S176-033939878475-PAYMENT FROM PHONE",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,135"
+        },
+        {
+          "amount": 80657,
+          "narration": "UPI-GIRRAJ MEDICAL STORE-PAYTMQR28100505010111A10BLF7BGA@PAYTM-PYTM0123456-033319425613-UPI",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,657"
+        },
+        {
+          "amount": 80134,
+          "narration": "UPI-SHANTI MANTRI-9652458674@YBL-SBIN0020380-101654249219-PAYMENT FROM PHONE",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,134"
+        },
+        {
+          "amount": 80776,
+          "narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010720599609-WALLET TOPUP",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,776"
+        },
+        {
+          "amount": 80430,
+          "narration": "UPI-GET SIMPL TECHNOLOGI-SIMPL@AXISBANK-UTIB0000100-035714694623-SIMPL",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,430"
+        },
+        {
+          "amount": 80063,
+          "narration": "UPI-PINTU GUPTA-PAYTMQR281005050101LK22YFGX0QRX@PAYTM-PYTM0123456-127404613871-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,063"
+        },
+        {
+          "amount": 80754,
+          "narration": "IMPS-104311102929-SANDIP PATIL-CNRB-XXXXXXXXX7346-RENT",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,754"
+        },
+        {
+          "amount": 80634,
+          "narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010730656553-WALLET TOPUP",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,634"
+        },
+        {
+          "amount": 80952,
+          "narration": "UPI-DENTIS ZONE MULTISPE-DENTISZONEMULTISPECI.28121798@HDFCBANK-HDFC0000001-106056416346-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,952"
+        },
+        {
+          "amount": 80796,
+          "narration": "UPI-SANGEETHA M-SANGEETHA28.SM@OKSBI-VIJB0001394-022418310954-UPI",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,796"
+        },
+        {
+          "amount": 80935,
+          "narration": "20201222147613830340/PAYTMPAYTMMONEYMUTUA",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,935"
+        },
+        {
+          "amount": 80549,
+          "narration": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,549"
+        },
+        {
+          "amount": 80502,
+          "narration": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-102038302659-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,502"
+        },
+        {
+          "amount": 80331,
+          "narration": "50400204367581- RD INSTALLMENT-DEC 2020",
+          "date": "2025-06-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,331"
+        },
+        {
+          "amount": 80847,
+          "narration": "UPI-RAJESH-PAYTMQR28100505010115KDL9E9P7TK@PAYTM-PYTM0123456-031624391996-PAYMENT FROM PHONE",
+          "date": "2025-05-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,847"
+        }
+      ],
+      "Bills & Utilities": [
+        {
+          "amount": 80408,
+          "narration": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT FOR SUBSCR",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,408"
+        },
+        {
+          "amount": 80547,
+          "narration": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT FOR SUBSCR",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,547"
+        },
+        {
+          "amount": 80827,
+          "narration": "UPI-AIRTEL HDFC UPI MAST-AIRTELIN.RZP@AXISBANK-UTIB0001507-104625743564-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,827"
+        }
+      ],
+      "Financial Services": [
+        {
+          "amount": 80208,
+          "narration": "UPI-CRED-CRED@AXISB-UTIB0000114-112115658127-PAYMENT ON CRED",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,208"
+        },
+        {
+          "amount": 80852,
+          "narration": "UPI-CRED-CREDCC@YESBANK-YESB0000022-018492205316-CREDIT CARD BILL P",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,852"
+        },
+        {
+          "amount": 80207,
+          "narration": "UPI-CREDCLUB-CREDCLUB@ICICI-ICIC0000001-030519746862-CREDIT CARD BILL P",
+          "date": "2025-06-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,207"
+        },
+        {
+          "amount": 80051,
+          "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-019923935948-CREDIT CARD BILL P",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,051"
+        },
+        {
+          "amount": 80677,
+          "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-009400589368-CREDIT CARD BILL P",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,677"
+        },
+        {
+          "amount": 80768,
+          "narration": "CREDIT INTEREST CAPITALISED",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,768"
+        },
+        {
+          "amount": 80939,
+          "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-009400741981-CREDIT CARD BILL P",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,939"
+        }
+      ],
+      "Food & Dining": [
+        {
+          "amount": 80267,
+          "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,267"
+        },
+        {
+          "amount": 80291,
+          "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-104139133337-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,291"
+        }
+      ],
+      "Transportation": [
+        {
+          "amount": 80514,
+          "narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-126041436693-PAYMENT FOR C9725A",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,514"
+        },
+        {
+          "amount": 80565,
+          "narration": "UPI-UBER INDIA SYSTEMS P-UBERRIDES@HDFCBANK-HDFC0000499-105117853141-CHARGE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,565"
+        },
+        {
+          "amount": 80295,
+          "narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-123674232023-PAYMENT FOR E54EEA",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,295"
+        }
+      ]
+    },
+    "credit_transactions_categorized": {
+      "Other Credits": [
+        {
+          "amount": 80558,
+          "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-104264587845-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,558"
+        },
+        {
+          "amount": 80415,
+          "narration": "UPI-CRED-CRED@AXISB-UTIB0000114-030309272514-CREDIT CARD BILL P",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,415"
+        },
+        {
+          "amount": 80631,
+          "narration": "CHQ PAID-MICR CTS-NO-SR POST MASTER  HPO",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,631"
+        },
+        {
+          "amount": 80870,
+          "narration": "UPI-BHARATPEMERCHANT-BHARATPE.0850487682@ICICI-ICIC0000001-031703603873-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,870"
+        },
+        {
+          "amount": 80581,
+          "narration": "UPI-SIDDHANT KUMAR-SIDDHANTKUMAR171@DBS-DBSS0IN0811-101012491647-AMAZON NORD PAYMEN",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,581"
+        },
+        {
+          "amount": 80203,
+          "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-027200895296-CREDIT CARD BILL P",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,203"
+        },
+        {
+          "amount": 80713,
+          "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,713"
+        },
+        {
+          "amount": 80572,
+          "narration": "UPI-PHONEPE-BILLDESKPP@YBL-YESB0YBLUPI-104831200709-PAYMENT FROM PHONE",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,572"
+        },
+        {
+          "amount": 80448,
+          "narration": "INST-ALERT CHG INC GST OCT-DEC2020-MIR2101402042013",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,448"
+        },
+        {
+          "amount": 80391,
+          "narration": "UPI-HOTEL SAVITHA-PAYTMQR28100505010113DKDV819USD@PAYTM-PYTM0123456-028604517463-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,391"
+        },
+        {
+          "amount": 80838,
+          "narration": "UPI RET-2020-04-16-010709165412",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,838"
+        },
+        {
+          "amount": 80334,
+          "narration": "IMPS-009401112115-SANDIP PATIL-CNRB-XXXXXXXXX7346-RENT",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,334"
+        },
+        {
+          "amount": 80443,
+          "narration": "UPI-SUDHANVA MADHURAO RA-7760615177@YBL-HDFC0000877-015456371091-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,443"
+        },
+        {
+          "amount": 80994,
+          "narration": "NEFT DR-IDIB000S176-PRATEEK PATNAIK-NETBANK, MUM-N339201328608485-LOAN CLOSURE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,994"
+        },
+        {
+          "amount": 80714,
+          "narration": "UPI-XXXXXX4811-IDIB0000001-101911439713-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,714"
+        },
+        {
+          "amount": 80393,
+          "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,393"
+        },
+        {
+          "amount": 80134,
+          "narration": "UPI-DIVYA DAS-DIVYADAS91@OKHDFCBANK-HDFC0002777-016519304334-UPI",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,134"
+        },
+        {
+          "amount": 80643,
+          "narration": "NEFT DR-IDIB000S176-PRATEEK PATNAIK-NETBANK, MUM-N276201262219272-EMI",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,643"
+        },
+        {
+          "amount": 80075,
+          "narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010666437303-WALLET TOPUP",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,075"
+        },
+        {
+          "amount": 80963,
+          "narration": "50400204367581- RD INSTALLMENT-NOV 2020",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,963"
+        },
+        {
+          "amount": 80050,
+          "narration": "UPI-XXXXXX6863-SBIN0040403-009512193461-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,050"
+        },
+        {
+          "amount": 80711,
+          "narration": "UPI-AIRTEL HDFC UPI MAST-AIRTELIN.RZP@AXISBANK-UTIB0001507-105543920647-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,711"
+        },
+        {
+          "amount": 80782,
+          "narration": "UPI-CREDCLUB-CREDCLUB@ICICI-ICIC0000001-036217802839-CREDIT CARD BILL P",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,782"
+        },
+        {
+          "amount": 80978,
+          "narration": "UPI-UBER INDIA SYSTEMS P-UBERRIDES@HDFCBANK-HDFC0000499-108051658151-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,978"
+        },
+        {
+          "amount": 80927,
+          "narration": "UPI-BHARATPE MERCHANT-BHARATPE90718510059@YESBANKLTD-YESB0000004-017244208980-VERIFIED MERCHANT",
+          "date": "2025-06-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,927"
+        },
+        {
+          "amount": 80027,
+          "narration": "UPI-UBER INDIA SYSTEMS P-UBERRIDES@HDFCBANK-HDFC0000499-105117853141-CHARGE",
+          "date": "2025-05-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,027"
+        },
+        {
+          "amount": 80961,
+          "narration": "UPI-XXXXXX9746-HDFC0000001-028779399607-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,961"
+        },
+        {
+          "amount": 80267,
+          "narration": ".IMPS P2P 029015173519#16/10/2020 161020-MIR2030035732768",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,267"
+        },
+        {
+          "amount": 80550,
+          "narration": "UPI-PRATEEK PATNAIK-9686165933@YBL-HDFC0000523-106183952786-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,550"
+        },
+        {
+          "amount": 80519,
+          "narration": "UPI-PRATEEK PATNAIK-9686165933@YBL-HDFC0000523-033909369796-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,519"
+        },
+        {
+          "amount": 80638,
+          "narration": "UPI-CREDCLUB-CREDCLUB@ICICI-ICIC0000001-033624490024-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,638"
+        },
+        {
+          "amount": 80905,
+          "narration": "UPI-HDFC BANK LTD FASTAG-NETC.KA01ML2012@HDFCBANK-HDFC0009956-015414647453-PAYMENT FROM PHONE",
+          "date": "2025-06-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,905"
+        },
+        {
+          "amount": 80298,
+          "narration": "UPI-PARASHIVAMURTHY K S-9206954818@YBL-SYNB0001562-014438416783-PAYMENT FROM PHONE",
+          "date": "2025-05-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,298"
+        },
+        {
+          "amount": 80085,
+          "narration": "UPI-SHEETAL RAVINDRA DA-SHEETAL.DAMBAL@OKSBI-SBIN0010411-109209224698-SUFYAN",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,085"
+        },
+        {
+          "amount": 80267,
+          "narration": "UPI-RAVISHANKAR-Q78015288@YBL-YESB0YBLUPI-123535728297-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,267"
+        },
+        {
+          "amount": 80016,
+          "narration": "UPI-ABDESH KUMAR YADAV-PAYTMQR28100505010117UM15XIYV9E@PAYTM-PYTM0123456-120209292799-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,016"
+        },
+        {
+          "amount": 80287,
+          "narration": "UPI-TREND AUTOMOBILES-105302393@CNRB-CNRB0001074-035222057565-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,287"
+        },
+        {
+          "amount": 80984,
+          "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101057836776-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,984"
+        },
+        {
+          "amount": 80326,
+          "narration": "UPI-CRED-CRED@AXISB-UTIB0000114-103219881988-CREDIT CARD BILL P",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,326"
+        },
+        {
+          "amount": 80769,
+          "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-023113790606-CREDIT CARD BILL P",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,769"
+        },
+        {
+          "amount": 80278,
+          "narration": "NWD-438624XXXXXX3427-08887405-BANGALORE MET",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,278"
+        },
+        {
+          "amount": 80559,
+          "narration": "UPI-AISHWARYA MINI MART-Q36365093@YBL-YESB0YBLUPI-104642349580-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,559"
+        },
+        {
+          "amount": 80050,
+          "narration": "UPI-DUNZO DIGITAL PRIVAT-DUNZO1.PAYU@INDUS-INDB0002201-104767620300-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,050"
+        },
+        {
+          "amount": 80037,
+          "narration": "UPI-SAFE GOLD-SAFEGOLD@YBL-YESB0YBLUPI-016220690358-PAYMENT FOR CATEGO",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,037"
+        },
+        {
+          "amount": 80824,
+          "narration": "UPI-SUDHANVA MADHURAO RA-7760615177@YBL-HDFC0000877-019884154921-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,824"
+        },
+        {
+          "amount": 80632,
+          "narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-105086855192-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,632"
+        },
+        {
+          "amount": 80544,
+          "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-012016383521-CREDIT CARD BILL P",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,544"
+        },
+        {
+          "amount": 80652,
+          "narration": "UPI-SUMAN  SWAROOP-SUMANSWAR12@OKSBI-SBIN0006652-006006641672-PETROL",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,652"
+        },
+        {
+          "amount": 80772,
+          "narration": "UPI-SPORTA TECHNOLOGIES -FANCODE.PAYU@INDUS-INDB0002201-036509119466-UPI TRANSACTION",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,772"
+        },
+        {
+          "amount": 80260,
+          "narration": "UPI-HARDIK  AGRAWAL-HARDIK0406AGRAWAL@OKSBI-SBIN0030261-028317839465-SAVINGS",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,260"
+        },
+        {
+          "amount": 80163,
+          "narration": "UPI-RAMA SUDHAKAR PATNAI-9414077884@YBL-SBIN0020702-104321119119-PAYMENT FROM PHONE",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,163"
+        },
+        {
+          "amount": 80273,
+          "narration": "UPI-CRED-CRED@AXISB-UTIB0000114-104817335968-CREDIT CARD BILL P",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,273"
+        },
+        {
+          "amount": 80422,
+          "narration": "UPI-SRI GANESH FRUIT JUI-PAYTMQR2810050501011EQANBWQ4ZSL@PAYTM-PYTM0123456-036043230287-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,422"
+        },
+        {
+          "amount": 80203,
+          "narration": "UPI-PARSURAMPURAM SRINIV-6370242870@YBL-ORBC0101157-021633611931-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,203"
+        },
+        {
+          "amount": 80880,
+          "narration": "UPI-PARSURAMPURAM SRINIV-PSS.PRASAD@YBL-PUNB0115710-104315466518-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,880"
+        },
+        {
+          "amount": 80135,
+          "narration": "UPI-SAAPAAD-PAYTMQR28100505010117026OE8C6MV@PAYTM-PYTM0123456-021464993470-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,135"
+        },
+        {
+          "amount": 80015,
+          "narration": ".IMPS P2P 029117302320#17/10/2020 181020-MIR2030136992354",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,015"
+        },
+        {
+          "amount": 80205,
+          "narration": "UPI-ANKUR DHIR-ANKURDHIR111@OKHDFCBANK-HDFC0001266-030110973590-UPI",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,205"
+        },
+        {
+          "amount": 80212,
+          "narration": "UPI-RAMA SUDHAKAR PATNAI-9414077884@YBL-SBIN0020702-034066225154-PAYMENT FROM PHONE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,212"
+        },
+        {
+          "amount": 80372,
+          "narration": "UPI-UBER INDIA SYSTEMS P-UBERRIDES@HDFCBANK-HDFC0000499-105217478239-CHARGE",
+          "date": "2025-07-09",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,372"
+        },
+        {
+          "amount": 80030,
+          "narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-011456885597-WALLET TOPUP",
+          "date": "2025-06-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,030"
+        },
+        {
+          "amount": 80339,
+          "narration": "UPI-DIVYA DAS-9686097437@YBL-HDFC0002777-012848830297-PAYMENT FROM PHONE",
+          "date": "2025-05-27",
+          "bank": "Union Bank",
+          "formatted_amount": "₹80,339"
+        }
+      ],
+      "Salary": [
+        {
+          "amount": 80935,
+          "narration": "SALARY FROM MEDISYNC HEALTH MANAGEMENT SERVICES P L",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,935"
+        },
+        {
+          "amount": 80994,
+          "narration": "50200015847022SALAUG 20 108621",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,994"
+        }
+      ],
+      "Investment Income": [
+        {
+          "amount": 80806,
+          "narration": "CREDIT INTEREST CAPITALISED",
+          "date": "2025-07-07",
+          "bank": "HDFC Bank",
+          "formatted_amount": "₹80,806"
+        },
+        {
+          "amount": 80304,
+          "narration": "CREDIT INTEREST CAPITALISED",
+          "date": "2025-07-09",
+          "bank": "IDFC Bank",
+          "formatted_amount": "₹80,304"
+        }
+      ]
+    },
+    "spending_analysis": {
+      "status": "SUCCESS",
+      "spending_by_category": {
+        "Miscellaneous": 4107950,
+        "Bills & Utilities": 241782,
+        "Financial Services": 563702,
+        "Food & Dining": 160558,
+        "Transportation": 241374
+      },
+      "category_breakdown": [
+        {
+          "category": "Miscellaneous",
+          "amount": 4107950,
+          "formatted_amount": "₹4,107,950",
+          "percentage_of_total": 77.28442406411901
+        },
+        {
+          "category": "Financial Services",
+          "amount": 563702,
+          "formatted_amount": "₹563,702",
+          "percentage_of_total": 10.605139890649111
+        },
+        {
+          "category": "Bills & Utilities",
+          "amount": 241782,
+          "formatted_amount": "₹241,782",
+          "percentage_of_total": 4.5487366250978765
+        },
+        {
+          "category": "Transportation",
+          "amount": 241374,
+          "formatted_amount": "₹241,374",
+          "percentage_of_total": 4.541060766088356
+        },
+        {
+          "category": "Food & Dining",
+          "amount": 160558,
+          "formatted_amount": "₹160,558",
+          "percentage_of_total": 3.020638654045648
+        }
+      ],
+      "total_spending": 5315366,
+      "formatted_total_spending": "₹5,315,366",
+      "transaction_count": 66,
+      "period_days": 90,
+      "daily_average": 59059.62222222222,
+      "formatted_daily_average": "₹59,060"
+    },
+    "income_analysis": {
+      "status": "SUCCESS",
+      "income_sources": {
+        "Likely Salary/Large Credit": 4989117,
+        "Salary/Company Credit": 161929,
+        "Investment Income": 161110
+      },
+      "income_breakdown": [
+        {
+          "category": "Likely Salary/Large Credit",
+          "amount": 4989117,
+          "formatted_amount": "₹4,989,117",
+          "percentage_of_total": 93.91887211143649
+        },
+        {
+          "category": "Salary/Company Credit",
+          "amount": 161929,
+          "formatted_amount": "₹161,929",
+          "percentage_of_total": 3.0482726787391035
+        },
+        {
+          "category": "Investment Income",
+          "amount": 161110,
+          "formatted_amount": "₹161,110",
+          "percentage_of_total": 3.0328552098244104
+        }
+      ],
+      "total_income": 5312156,
+      "formatted_total_income": "₹5,312,156",
+      "monthly_average": 1770718.6666666667,
+      "formatted_monthly_average": "₹1,770,719",
+      "analysis_period_days": 90,
+      "largest_income_source": "Likely Salary/Large Credit",
+      "income_diversity": 3
+    },
+    "recurring_payments_analysis": {
+      "status": "SUCCESS",
+      "recurring_payments": [
+        {
+          "pattern": "PHONEPE",
+          "amount": 80830,
+          "formatted_amount": "₹80,830",
+          "frequency": "Weekly",
+          "frequency_days": 0,
+          "count": 3,
+          "monthly_equivalent": 323320,
+          "formatted_monthly_equivalent": "₹323,320",
+          "sample_narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+          "first_occurrence": "2025-07-09",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80951,
+              "date": "2025-07-09",
+              "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+              "bank": "IDFC Bank"
+            },
+            {
+              "amount": 80690,
+              "date": "2025-07-09",
+              "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-030878345040-WALLET TOPUP",
+              "bank": "Union Bank"
+            },
+            {
+              "amount": 80849,
+              "date": "2025-07-09",
+              "narration": "UPI-PHONEPE-BILLDESKPP@YBL-YESB0YBLUPI-022533819900-PAYMENT FOR CATEGO",
+              "bank": "HDFC Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT",
+          "amount": 80739.5,
+          "formatted_amount": "₹80,740",
+          "frequency": "Weekly",
+          "frequency_days": 0,
+          "count": 2,
+          "monthly_equivalent": 322958,
+          "formatted_monthly_equivalent": "₹322,958",
+          "sample_narration": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT FROM PHONE",
+          "first_occurrence": "2025-07-09",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80930,
+              "date": "2025-07-09",
+              "narration": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT FROM PHONE",
+              "bank": "IDFC Bank"
+            },
+            {
+              "amount": 80549,
+              "date": "2025-07-09",
+              "narration": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT FROM PHONE",
+              "bank": "Union Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "UPI-FX",
+          "amount": 80705,
+          "formatted_amount": "₹80,705",
+          "frequency": "Weekly",
+          "frequency_days": 2,
+          "count": 2,
+          "monthly_equivalent": 322820,
+          "formatted_monthly_equivalent": "₹322,820",
+          "sample_narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010720599609-WALLET TOPUP",
+          "first_occurrence": "2025-07-07",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80776,
+              "date": "2025-07-07",
+              "narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010720599609-WALLET TOPUP",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80634,
+              "date": "2025-07-09",
+              "narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010730656553-WALLET TOPUP",
+              "bank": "IDFC Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "UPI-MD",
+          "amount": 80645,
+          "formatted_amount": "₹80,645",
+          "frequency": "Weekly",
+          "frequency_days": 2,
+          "count": 2,
+          "monthly_equivalent": 322580,
+          "formatted_monthly_equivalent": "₹322,580",
+          "sample_narration": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-102038302659-PAYMENT FROM PHONE",
+          "first_occurrence": "2025-07-07",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80788,
+              "date": "2025-07-07",
+              "narration": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-102038302659-PAYMENT FROM PHONE",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80502,
+              "date": "2025-07-09",
+              "narration": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-102038302659-PAYMENT FROM PHONE",
+              "bank": "Union Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "UPI-SANJAY",
+          "amount": 80594,
+          "formatted_amount": "₹80,594",
+          "frequency": "Weekly",
+          "frequency_days": 1,
+          "count": 3,
+          "monthly_equivalent": 322376,
+          "formatted_monthly_equivalent": "₹322,376",
+          "sample_narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TRANSFER",
+          "first_occurrence": "2025-07-07",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80687,
+              "date": "2025-07-07",
+              "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TRANSFER",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80786,
+              "date": "2025-07-09",
+              "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-032522377475-TEST",
+              "bank": "Union Bank"
+            },
+            {
+              "amount": 80309,
+              "date": "2025-07-09",
+              "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TRANSFER",
+              "bank": "HDFC Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "CRED",
+          "amount": 80528.85714285714,
+          "formatted_amount": "₹80,529",
+          "frequency": "Weekly",
+          "frequency_days": 2,
+          "count": 7,
+          "monthly_equivalent": 322115.4285714286,
+          "formatted_monthly_equivalent": "₹322,115",
+          "sample_narration": "UPI-CRED-CRED@AXISB-UTIB0000114-112115658127-PAYMENT ON CRED",
+          "first_occurrence": "2025-06-27",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80208,
+              "date": "2025-07-09",
+              "narration": "UPI-CRED-CRED@AXISB-UTIB0000114-112115658127-PAYMENT ON CRED",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80852,
+              "date": "2025-07-07",
+              "narration": "UPI-CRED-CREDCC@YESBANK-YESB0000022-018492205316-CREDIT CARD BILL P",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80207,
+              "date": "2025-06-27",
+              "narration": "UPI-CREDCLUB-CREDCLUB@ICICI-ICIC0000001-030519746862-CREDIT CARD BILL P",
+              "bank": "Union Bank"
+            },
+            {
+              "amount": 80051,
+              "date": "2025-07-09",
+              "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-019923935948-CREDIT CARD BILL P",
+              "bank": "Union Bank"
+            },
+            {
+              "amount": 80677,
+              "date": "2025-07-09",
+              "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-009400589368-CREDIT CARD BILL P",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80768,
+              "date": "2025-07-09",
+              "narration": "CREDIT INTEREST CAPITALISED",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80939,
+              "date": "2025-07-07",
+              "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-009400741981-CREDIT CARD BILL P",
+              "bank": "HDFC Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "PAYTM",
+          "amount": 80514.77777777778,
+          "formatted_amount": "₹80,515",
+          "frequency": "Weekly",
+          "frequency_days": 5.375,
+          "count": 9,
+          "monthly_equivalent": 322059.1111111111,
+          "formatted_monthly_equivalent": "₹322,059",
+          "sample_narration": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT FOR SUBSCR",
+          "first_occurrence": "2025-05-27",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80408,
+              "date": "2025-07-09",
+              "narration": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT FOR SUBSCR",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80545,
+              "date": "2025-07-09",
+              "narration": "UPI-SRI BRAHMALINGESHWAR-PAYTMQR28100505010113CV8CXTZUHG@PAYTM-PYTM0123456-033363246388-PAYMENT FROM PHONE",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80547,
+              "date": "2025-07-07",
+              "narration": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT FOR SUBSCR",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80099,
+              "date": "2025-07-09",
+              "narration": "UPI-SRI GANESH FRUIT JUI-PAYTMQR2810050501013Q7XKZT6R7PB@PAYTM-PYTM0123456-108157562234-PAYMENT FROM PHONE",
+              "bank": "Union Bank"
+            },
+            {
+              "amount": 80532,
+              "date": "2025-07-07",
+              "narration": "UPI-PINTU GUPTA-PAYTMQR281005050101LK22YFGX0QRX@PAYTM-PYTM0123456-127404613871-PAYMENT FROM PHONE",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80657,
+              "date": "2025-07-07",
+              "narration": "UPI-GIRRAJ MEDICAL STORE-PAYTMQR28100505010111A10BLF7BGA@PAYTM-PYTM0123456-033319425613-UPI",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80063,
+              "date": "2025-07-09",
+              "narration": "UPI-PINTU GUPTA-PAYTMQR281005050101LK22YFGX0QRX@PAYTM-PYTM0123456-127404613871-PAYMENT FROM PHONE",
+              "bank": "IDFC Bank"
+            },
+            {
+              "amount": 80935,
+              "date": "2025-07-09",
+              "narration": "20201222147613830340/PAYTMPAYTMMONEYMUTUA",
+              "bank": "Union Bank"
+            },
+            {
+              "amount": 80847,
+              "date": "2025-05-27",
+              "narration": "UPI-RAJESH-PAYTMQR28100505010115KDL9E9P7TK@PAYTM-PYTM0123456-031624391996-PAYMENT FROM PHONE",
+              "bank": "Union Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "UPI-GET",
+          "amount": 80466.33333333333,
+          "formatted_amount": "₹80,466",
+          "frequency": "Weekly",
+          "frequency_days": 0,
+          "count": 3,
+          "monthly_equivalent": 321865.3333333333,
+          "formatted_monthly_equivalent": "₹321,865",
+          "sample_narration": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511896593-SIMPL REPAYMENT TO",
+          "first_occurrence": "2025-07-09",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80476,
+              "date": "2025-07-09",
+              "narration": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511896593-SIMPL REPAYMENT TO",
+              "bank": "Union Bank"
+            },
+            {
+              "amount": 80493,
+              "date": "2025-07-09",
+              "narration": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511896593-SIMPL REPAYMENT TO",
+              "bank": "Union Bank"
+            },
+            {
+              "amount": 80430,
+              "date": "2025-07-09",
+              "narration": "UPI-GET SIMPL TECHNOLOGI-SIMPL@AXISBANK-UTIB0000100-035714694623-SIMPL",
+              "bank": "IDFC Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "OLA",
+          "amount": 80404.5,
+          "formatted_amount": "₹80,404",
+          "frequency": "Weekly",
+          "frequency_days": 0,
+          "count": 2,
+          "monthly_equivalent": 321618,
+          "formatted_monthly_equivalent": "₹321,618",
+          "sample_narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-126041436693-PAYMENT FOR C9725A",
+          "first_occurrence": "2025-07-09",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80514,
+              "date": "2025-07-09",
+              "narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-126041436693-PAYMENT FOR C9725A",
+              "bank": "Union Bank"
+            },
+            {
+              "amount": 80295,
+              "date": "2025-07-09",
+              "narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-123674232023-PAYMENT FOR E54EEA",
+              "bank": "Union Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "SWIGGY",
+          "amount": 80279,
+          "formatted_amount": "₹80,279",
+          "frequency": "Weekly",
+          "frequency_days": 0,
+          "count": 2,
+          "monthly_equivalent": 321116,
+          "formatted_monthly_equivalent": "₹321,116",
+          "sample_narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+          "first_occurrence": "2025-07-09",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80267,
+              "date": "2025-07-09",
+              "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+              "bank": "IDFC Bank"
+            },
+            {
+              "amount": 80291,
+              "date": "2025-07-09",
+              "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-104139133337-PAYMENT FROM PHONE",
+              "bank": "HDFC Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "UPI-MR",
+          "amount": 80103.5,
+          "formatted_amount": "₹80,104",
+          "frequency": "Weekly",
+          "frequency_days": 2,
+          "count": 2,
+          "monthly_equivalent": 320414,
+          "formatted_monthly_equivalent": "₹320,414",
+          "sample_narration": "UPI-MR MOHAMMED ZAHEERUL-8884442498@YBL-IDIB000B041-118513918994-PAYMENT FROM PHONE",
+          "first_occurrence": "2025-07-07",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80072,
+              "date": "2025-07-09",
+              "narration": "UPI-MR MOHAMMED ZAHEERUL-8884442498@YBL-IDIB000B041-118513918994-PAYMENT FROM PHONE",
+              "bank": "HDFC Bank"
+            },
+            {
+              "amount": 80135,
+              "date": "2025-07-07",
+              "narration": "UPI-MR PRATEEK PATNAIK-PATNAIK.PRATEEK@YBL-IDIB000S176-033939878475-PAYMENT FROM PHONE",
+              "bank": "HDFC Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "UPI-ANUJ",
+          "amount": 80279,
+          "formatted_amount": "₹80,279",
+          "frequency": "Monthly",
+          "frequency_days": 31,
+          "count": 2,
+          "monthly_equivalent": 80279,
+          "formatted_monthly_equivalent": "₹80,279",
+          "sample_narration": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+          "first_occurrence": "2025-05-27",
+          "last_occurrence": "2025-06-27",
+          "all_transactions": [
+            {
+              "amount": 80445,
+              "date": "2025-06-27",
+              "narration": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+              "bank": "Union Bank"
+            },
+            {
+              "amount": 80113,
+              "date": "2025-05-27",
+              "narration": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+              "bank": "Union Bank"
+            }
+          ]
+        },
+        {
+          "pattern": "UPI-HARDIK",
+          "amount": 80567,
+          "formatted_amount": "₹80,567",
+          "frequency": "Every 43 days",
+          "frequency_days": 43,
+          "count": 2,
+          "monthly_equivalent": 56209.53488372093,
+          "formatted_monthly_equivalent": "₹56,210",
+          "sample_narration": "UPI-HARDIK  AGRAWAL-HARDIK0406AGRAWAL@OKSBI-SBIN0030261-028317839465-SAVINGS",
+          "first_occurrence": "2025-05-27",
+          "last_occurrence": "2025-07-09",
+          "all_transactions": [
+            {
+              "amount": 80978,
+              "date": "2025-05-27",
+              "narration": "UPI-HARDIK  AGRAWAL-HARDIK0406AGRAWAL@OKSBI-SBIN0030261-028317839465-SAVINGS",
+              "bank": "Union Bank"
+            },
+            {
+              "amount": 80156,
+              "date": "2025-07-09",
+              "narration": "UPI-HARDIK  AGRAWAL-9971488189.NIYO@IDFCBANK-IDFB0040101-031108651605-UPI",
+              "bank": "HDFC Bank"
+            }
+          ]
+        }
+      ],
+      "recurring_payments_count": 13,
+      "estimated_monthly_total": 3679730.407899594,
+      "formatted_monthly_total": "₹3,679,730",
+      "analysis_period_days": 180,
+      "top_recurring_payment": {
+        "pattern": "PHONEPE",
+        "amount": 80830,
+        "formatted_amount": "₹80,830",
+        "frequency": "Weekly",
+        "frequency_days": 0,
+        "count": 3,
+        "monthly_equivalent": 323320,
+        "formatted_monthly_equivalent": "₹323,320",
+        "sample_narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+        "first_occurrence": "2025-07-09",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80951,
+            "date": "2025-07-09",
+            "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+            "bank": "IDFC Bank"
+          },
+          {
+            "amount": 80690,
+            "date": "2025-07-09",
+            "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-030878345040-WALLET TOPUP",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80849,
+            "date": "2025-07-09",
+            "narration": "UPI-PHONEPE-BILLDESKPP@YBL-YESB0YBLUPI-022533819900-PAYMENT FOR CATEGO",
+            "bank": "HDFC Bank"
+          }
+        ]
+      },
+      "frequency_distribution": {
+        "monthly": 1,
+        "quarterly": 0,
+        "yearly": 0,
+        "weekly": 11,
+        "other": 1
+      }
+    },
+    "financial_behavior_metrics": {
+      "total_spending_90_days": 5315366,
+      "total_income_90_days": 5312156,
+      "estimated_savings_rate": -0.06042744226637922,
+      "estimated_monthly_savings": 0,
+      "top_spending_category": "Miscellaneous",
+      "spending_diversity": 5,
+      "income_diversity": 3,
+      "recurring_commitments": 3679730.407899594
+    },
+    "identified_recurring_payments": [
+      {
+        "pattern": "PHONEPE",
+        "amount": 80830,
+        "formatted_amount": "₹80,830",
+        "frequency": "Weekly",
+        "frequency_days": 0,
+        "count": 3,
+        "monthly_equivalent": 323320,
+        "formatted_monthly_equivalent": "₹323,320",
+        "sample_narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+        "first_occurrence": "2025-07-09",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80951,
+            "date": "2025-07-09",
+            "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+            "bank": "IDFC Bank"
+          },
+          {
+            "amount": 80690,
+            "date": "2025-07-09",
+            "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-030878345040-WALLET TOPUP",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80849,
+            "date": "2025-07-09",
+            "narration": "UPI-PHONEPE-BILLDESKPP@YBL-YESB0YBLUPI-022533819900-PAYMENT FOR CATEGO",
+            "bank": "HDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT",
+        "amount": 80739.5,
+        "formatted_amount": "₹80,740",
+        "frequency": "Weekly",
+        "frequency_days": 0,
+        "count": 2,
+        "monthly_equivalent": 322958,
+        "formatted_monthly_equivalent": "₹322,958",
+        "sample_narration": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT FROM PHONE",
+        "first_occurrence": "2025-07-09",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80930,
+            "date": "2025-07-09",
+            "narration": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT FROM PHONE",
+            "bank": "IDFC Bank"
+          },
+          {
+            "amount": 80549,
+            "date": "2025-07-09",
+            "narration": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT FROM PHONE",
+            "bank": "Union Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-FX",
+        "amount": 80705,
+        "formatted_amount": "₹80,705",
+        "frequency": "Weekly",
+        "frequency_days": 2,
+        "count": 2,
+        "monthly_equivalent": 322820,
+        "formatted_monthly_equivalent": "₹322,820",
+        "sample_narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010720599609-WALLET TOPUP",
+        "first_occurrence": "2025-07-07",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80776,
+            "date": "2025-07-07",
+            "narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010720599609-WALLET TOPUP",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80634,
+            "date": "2025-07-09",
+            "narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010730656553-WALLET TOPUP",
+            "bank": "IDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-MD",
+        "amount": 80645,
+        "formatted_amount": "₹80,645",
+        "frequency": "Weekly",
+        "frequency_days": 2,
+        "count": 2,
+        "monthly_equivalent": 322580,
+        "formatted_monthly_equivalent": "₹322,580",
+        "sample_narration": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-102038302659-PAYMENT FROM PHONE",
+        "first_occurrence": "2025-07-07",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80788,
+            "date": "2025-07-07",
+            "narration": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-102038302659-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80502,
+            "date": "2025-07-09",
+            "narration": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-102038302659-PAYMENT FROM PHONE",
+            "bank": "Union Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-SANJAY",
+        "amount": 80594,
+        "formatted_amount": "₹80,594",
+        "frequency": "Weekly",
+        "frequency_days": 1,
+        "count": 3,
+        "monthly_equivalent": 322376,
+        "formatted_monthly_equivalent": "₹322,376",
+        "sample_narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TRANSFER",
+        "first_occurrence": "2025-07-07",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80687,
+            "date": "2025-07-07",
+            "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TRANSFER",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80786,
+            "date": "2025-07-09",
+            "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-032522377475-TEST",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80309,
+            "date": "2025-07-09",
+            "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TRANSFER",
+            "bank": "HDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "CRED",
+        "amount": 80528.85714285714,
+        "formatted_amount": "₹80,529",
+        "frequency": "Weekly",
+        "frequency_days": 2,
+        "count": 7,
+        "monthly_equivalent": 322115.4285714286,
+        "formatted_monthly_equivalent": "₹322,115",
+        "sample_narration": "UPI-CRED-CRED@AXISB-UTIB0000114-112115658127-PAYMENT ON CRED",
+        "first_occurrence": "2025-06-27",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80208,
+            "date": "2025-07-09",
+            "narration": "UPI-CRED-CRED@AXISB-UTIB0000114-112115658127-PAYMENT ON CRED",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80852,
+            "date": "2025-07-07",
+            "narration": "UPI-CRED-CREDCC@YESBANK-YESB0000022-018492205316-CREDIT CARD BILL P",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80207,
+            "date": "2025-06-27",
+            "narration": "UPI-CREDCLUB-CREDCLUB@ICICI-ICIC0000001-030519746862-CREDIT CARD BILL P",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80051,
+            "date": "2025-07-09",
+            "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-019923935948-CREDIT CARD BILL P",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80677,
+            "date": "2025-07-09",
+            "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-009400589368-CREDIT CARD BILL P",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80768,
+            "date": "2025-07-09",
+            "narration": "CREDIT INTEREST CAPITALISED",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80939,
+            "date": "2025-07-07",
+            "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-009400741981-CREDIT CARD BILL P",
+            "bank": "HDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "PAYTM",
+        "amount": 80514.77777777778,
+        "formatted_amount": "₹80,515",
+        "frequency": "Weekly",
+        "frequency_days": 5.375,
+        "count": 9,
+        "monthly_equivalent": 322059.1111111111,
+        "formatted_monthly_equivalent": "₹322,059",
+        "sample_narration": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT FOR SUBSCR",
+        "first_occurrence": "2025-05-27",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80408,
+            "date": "2025-07-09",
+            "narration": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT FOR SUBSCR",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80545,
+            "date": "2025-07-09",
+            "narration": "UPI-SRI BRAHMALINGESHWAR-PAYTMQR28100505010113CV8CXTZUHG@PAYTM-PYTM0123456-033363246388-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80547,
+            "date": "2025-07-07",
+            "narration": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT FOR SUBSCR",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80099,
+            "date": "2025-07-09",
+            "narration": "UPI-SRI GANESH FRUIT JUI-PAYTMQR2810050501013Q7XKZT6R7PB@PAYTM-PYTM0123456-108157562234-PAYMENT FROM PHONE",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80532,
+            "date": "2025-07-07",
+            "narration": "UPI-PINTU GUPTA-PAYTMQR281005050101LK22YFGX0QRX@PAYTM-PYTM0123456-127404613871-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80657,
+            "date": "2025-07-07",
+            "narration": "UPI-GIRRAJ MEDICAL STORE-PAYTMQR28100505010111A10BLF7BGA@PAYTM-PYTM0123456-033319425613-UPI",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80063,
+            "date": "2025-07-09",
+            "narration": "UPI-PINTU GUPTA-PAYTMQR281005050101LK22YFGX0QRX@PAYTM-PYTM0123456-127404613871-PAYMENT FROM PHONE",
+            "bank": "IDFC Bank"
+          },
+          {
+            "amount": 80935,
+            "date": "2025-07-09",
+            "narration": "20201222147613830340/PAYTMPAYTMMONEYMUTUA",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80847,
+            "date": "2025-05-27",
+            "narration": "UPI-RAJESH-PAYTMQR28100505010115KDL9E9P7TK@PAYTM-PYTM0123456-031624391996-PAYMENT FROM PHONE",
+            "bank": "Union Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-GET",
+        "amount": 80466.33333333333,
+        "formatted_amount": "₹80,466",
+        "frequency": "Weekly",
+        "frequency_days": 0,
+        "count": 3,
+        "monthly_equivalent": 321865.3333333333,
+        "formatted_monthly_equivalent": "₹321,865",
+        "sample_narration": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511896593-SIMPL REPAYMENT TO",
+        "first_occurrence": "2025-07-09",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80476,
+            "date": "2025-07-09",
+            "narration": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511896593-SIMPL REPAYMENT TO",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80493,
+            "date": "2025-07-09",
+            "narration": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511896593-SIMPL REPAYMENT TO",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80430,
+            "date": "2025-07-09",
+            "narration": "UPI-GET SIMPL TECHNOLOGI-SIMPL@AXISBANK-UTIB0000100-035714694623-SIMPL",
+            "bank": "IDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "OLA",
+        "amount": 80404.5,
+        "formatted_amount": "₹80,404",
+        "frequency": "Weekly",
+        "frequency_days": 0,
+        "count": 2,
+        "monthly_equivalent": 321618,
+        "formatted_monthly_equivalent": "₹321,618",
+        "sample_narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-126041436693-PAYMENT FOR C9725A",
+        "first_occurrence": "2025-07-09",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80514,
+            "date": "2025-07-09",
+            "narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-126041436693-PAYMENT FOR C9725A",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80295,
+            "date": "2025-07-09",
+            "narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-123674232023-PAYMENT FOR E54EEA",
+            "bank": "Union Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "SWIGGY",
+        "amount": 80279,
+        "formatted_amount": "₹80,279",
+        "frequency": "Weekly",
+        "frequency_days": 0,
+        "count": 2,
+        "monthly_equivalent": 321116,
+        "formatted_monthly_equivalent": "₹321,116",
+        "sample_narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+        "first_occurrence": "2025-07-09",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80267,
+            "date": "2025-07-09",
+            "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+            "bank": "IDFC Bank"
+          },
+          {
+            "amount": 80291,
+            "date": "2025-07-09",
+            "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-104139133337-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-MR",
+        "amount": 80103.5,
+        "formatted_amount": "₹80,104",
+        "frequency": "Weekly",
+        "frequency_days": 2,
+        "count": 2,
+        "monthly_equivalent": 320414,
+        "formatted_monthly_equivalent": "₹320,414",
+        "sample_narration": "UPI-MR MOHAMMED ZAHEERUL-8884442498@YBL-IDIB000B041-118513918994-PAYMENT FROM PHONE",
+        "first_occurrence": "2025-07-07",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80072,
+            "date": "2025-07-09",
+            "narration": "UPI-MR MOHAMMED ZAHEERUL-8884442498@YBL-IDIB000B041-118513918994-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80135,
+            "date": "2025-07-07",
+            "narration": "UPI-MR PRATEEK PATNAIK-PATNAIK.PRATEEK@YBL-IDIB000S176-033939878475-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-ANUJ",
+        "amount": 80279,
+        "formatted_amount": "₹80,279",
+        "frequency": "Monthly",
+        "frequency_days": 31,
+        "count": 2,
+        "monthly_equivalent": 80279,
+        "formatted_monthly_equivalent": "₹80,279",
+        "sample_narration": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+        "first_occurrence": "2025-05-27",
+        "last_occurrence": "2025-06-27",
+        "all_transactions": [
+          {
+            "amount": 80445,
+            "date": "2025-06-27",
+            "narration": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80113,
+            "date": "2025-05-27",
+            "narration": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+            "bank": "Union Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-HARDIK",
+        "amount": 80567,
+        "formatted_amount": "₹80,567",
+        "frequency": "Every 43 days",
+        "frequency_days": 43,
+        "count": 2,
+        "monthly_equivalent": 56209.53488372093,
+        "formatted_monthly_equivalent": "₹56,210",
+        "sample_narration": "UPI-HARDIK  AGRAWAL-HARDIK0406AGRAWAL@OKSBI-SBIN0030261-028317839465-SAVINGS",
+        "first_occurrence": "2025-05-27",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80978,
+            "date": "2025-05-27",
+            "narration": "UPI-HARDIK  AGRAWAL-HARDIK0406AGRAWAL@OKSBI-SBIN0030261-028317839465-SAVINGS",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80156,
+            "date": "2025-07-09",
+            "narration": "UPI-HARDIK  AGRAWAL-9971488189.NIYO@IDFCBANK-IDFB0040101-031108651605-UPI",
+            "bank": "HDFC Bank"
+          }
+        ]
+      }
+    ],
+    "cashflow_health_indicators": {
+      "positive_cashflow": false,
+      "healthy_savings_rate": false,
+      "controlled_recurring_payments": false,
+      "diversified_income": true,
+      "spending_control": true
+    },
+    "data_completeness": {
+      "bank_transactions_available": true,
+      "spending_analysis_available": true,
+      "income_analysis_available": true,
+      "recurring_payments_available": true,
+      "sufficient_transaction_history": true
+    }
+  },
+  "get_spending_summary": {
+    "status": "SUCCESS",
+    "spending_by_category": {
+      "Miscellaneous": 4107950,
+      "Bills & Utilities": 241782,
+      "Financial Services": 563702,
+      "Food & Dining": 160558,
+      "Transportation": 241374
+    },
+    "category_breakdown": [
+      {
+        "category": "Miscellaneous",
+        "amount": 4107950,
+        "formatted_amount": "₹4,107,950",
+        "percentage_of_total": 77.28442406411901
+      },
+      {
+        "category": "Financial Services",
+        "amount": 563702,
+        "formatted_amount": "₹563,702",
+        "percentage_of_total": 10.605139890649111
+      },
+      {
+        "category": "Bills & Utilities",
+        "amount": 241782,
+        "formatted_amount": "₹241,782",
+        "percentage_of_total": 4.5487366250978765
+      },
+      {
+        "category": "Transportation",
+        "amount": 241374,
+        "formatted_amount": "₹241,374",
+        "percentage_of_total": 4.541060766088356
+      },
+      {
+        "category": "Food & Dining",
+        "amount": 160558,
+        "formatted_amount": "₹160,558",
+        "percentage_of_total": 3.020638654045648
+      }
+    ],
+    "total_spending": 5315366,
+    "formatted_total_spending": "₹5,315,366",
+    "transaction_count": 66,
+    "period_days": 90,
+    "daily_average": 59059.62222222222,
+    "formatted_daily_average": "₹59,060"
+  },
+  "identify_recurring_payments": {
+    "status": "SUCCESS",
+    "recurring_payments": [
+      {
+        "pattern": "PHONEPE",
+        "amount": 80830,
+        "formatted_amount": "₹80,830",
+        "frequency": "Weekly",
+        "frequency_days": 0,
+        "count": 3,
+        "monthly_equivalent": 323320,
+        "formatted_monthly_equivalent": "₹323,320",
+        "sample_narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+        "first_occurrence": "2025-07-09",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80951,
+            "date": "2025-07-09",
+            "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+            "bank": "IDFC Bank"
+          },
+          {
+            "amount": 80690,
+            "date": "2025-07-09",
+            "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-030878345040-WALLET TOPUP",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80849,
+            "date": "2025-07-09",
+            "narration": "UPI-PHONEPE-BILLDESKPP@YBL-YESB0YBLUPI-022533819900-PAYMENT FOR CATEGO",
+            "bank": "HDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT",
+        "amount": 80739.5,
+        "formatted_amount": "₹80,740",
+        "frequency": "Weekly",
+        "frequency_days": 0,
+        "count": 2,
+        "monthly_equivalent": 322958,
+        "formatted_monthly_equivalent": "₹322,958",
+        "sample_narration": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT FROM PHONE",
+        "first_occurrence": "2025-07-09",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80930,
+            "date": "2025-07-09",
+            "narration": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT FROM PHONE",
+            "bank": "IDFC Bank"
+          },
+          {
+            "amount": 80549,
+            "date": "2025-07-09",
+            "narration": "UPI-NIRMALA-BHARATPE.9051441401@FBPE-FDRL0001382-101632969524-PAYMENT FROM PHONE",
+            "bank": "Union Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-FX",
+        "amount": 80705,
+        "formatted_amount": "₹80,705",
+        "frequency": "Weekly",
+        "frequency_days": 2,
+        "count": 2,
+        "monthly_equivalent": 322820,
+        "formatted_monthly_equivalent": "₹322,820",
+        "sample_narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010720599609-WALLET TOPUP",
+        "first_occurrence": "2025-07-07",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80776,
+            "date": "2025-07-07",
+            "narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010720599609-WALLET TOPUP",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80634,
+            "date": "2025-07-09",
+            "narration": "UPI-FX MART PRIVATE LIMI-FXM@YBL-YESB0YBLUPI-010730656553-WALLET TOPUP",
+            "bank": "IDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-MD",
+        "amount": 80645,
+        "formatted_amount": "₹80,645",
+        "frequency": "Weekly",
+        "frequency_days": 2,
+        "count": 2,
+        "monthly_equivalent": 322580,
+        "formatted_monthly_equivalent": "₹322,580",
+        "sample_narration": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-102038302659-PAYMENT FROM PHONE",
+        "first_occurrence": "2025-07-07",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80788,
+            "date": "2025-07-07",
+            "narration": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-102038302659-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80502,
+            "date": "2025-07-09",
+            "narration": "UPI-MD JAHANGIR-BHARATPE09892849123@YESBANKLTD-YESB0000105-102038302659-PAYMENT FROM PHONE",
+            "bank": "Union Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-SANJAY",
+        "amount": 80594,
+        "formatted_amount": "₹80,594",
+        "frequency": "Weekly",
+        "frequency_days": 1,
+        "count": 3,
+        "monthly_equivalent": 322376,
+        "formatted_monthly_equivalent": "₹322,376",
+        "sample_narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TRANSFER",
+        "first_occurrence": "2025-07-07",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80687,
+            "date": "2025-07-07",
+            "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TRANSFER",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80786,
+            "date": "2025-07-09",
+            "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-032522377475-TEST",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80309,
+            "date": "2025-07-09",
+            "narration": "UPI-SANJAY AGRAWAL-SANJAY30AGRAWAL@OKICICI-ICIC0000274-100922596493-TRANSFER",
+            "bank": "HDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "CRED",
+        "amount": 80528.85714285714,
+        "formatted_amount": "₹80,529",
+        "frequency": "Weekly",
+        "frequency_days": 2,
+        "count": 7,
+        "monthly_equivalent": 322115.4285714286,
+        "formatted_monthly_equivalent": "₹322,115",
+        "sample_narration": "UPI-CRED-CRED@AXISB-UTIB0000114-112115658127-PAYMENT ON CRED",
+        "first_occurrence": "2025-06-27",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80208,
+            "date": "2025-07-09",
+            "narration": "UPI-CRED-CRED@AXISB-UTIB0000114-112115658127-PAYMENT ON CRED",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80852,
+            "date": "2025-07-07",
+            "narration": "UPI-CRED-CREDCC@YESBANK-YESB0000022-018492205316-CREDIT CARD BILL P",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80207,
+            "date": "2025-06-27",
+            "narration": "UPI-CREDCLUB-CREDCLUB@ICICI-ICIC0000001-030519746862-CREDIT CARD BILL P",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80051,
+            "date": "2025-07-09",
+            "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-019923935948-CREDIT CARD BILL P",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80677,
+            "date": "2025-07-09",
+            "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-009400589368-CREDIT CARD BILL P",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80768,
+            "date": "2025-07-09",
+            "narration": "CREDIT INTEREST CAPITALISED",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80939,
+            "date": "2025-07-07",
+            "narration": "UPI-DREAMPLUG TECHNOLOGI-CRED@AXISB-UTIB0000114-009400741981-CREDIT CARD BILL P",
+            "bank": "HDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "PAYTM",
+        "amount": 80514.77777777778,
+        "formatted_amount": "₹80,515",
+        "frequency": "Weekly",
+        "frequency_days": 5.375,
+        "count": 9,
+        "monthly_equivalent": 322059.1111111111,
+        "formatted_monthly_equivalent": "₹322,059",
+        "sample_narration": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT FOR SUBSCR",
+        "first_occurrence": "2025-05-27",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80408,
+            "date": "2025-07-09",
+            "narration": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT FOR SUBSCR",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80545,
+            "date": "2025-07-09",
+            "narration": "UPI-SRI BRAHMALINGESHWAR-PAYTMQR28100505010113CV8CXTZUHG@PAYTM-PYTM0123456-033363246388-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80547,
+            "date": "2025-07-07",
+            "narration": "UPI-ACT BROADBAND-PAYTM-ACTBAN4@PAYTM-PYTM0123456-016839849023-PAYMENT FOR SUBSCR",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80099,
+            "date": "2025-07-09",
+            "narration": "UPI-SRI GANESH FRUIT JUI-PAYTMQR2810050501013Q7XKZT6R7PB@PAYTM-PYTM0123456-108157562234-PAYMENT FROM PHONE",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80532,
+            "date": "2025-07-07",
+            "narration": "UPI-PINTU GUPTA-PAYTMQR281005050101LK22YFGX0QRX@PAYTM-PYTM0123456-127404613871-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80657,
+            "date": "2025-07-07",
+            "narration": "UPI-GIRRAJ MEDICAL STORE-PAYTMQR28100505010111A10BLF7BGA@PAYTM-PYTM0123456-033319425613-UPI",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80063,
+            "date": "2025-07-09",
+            "narration": "UPI-PINTU GUPTA-PAYTMQR281005050101LK22YFGX0QRX@PAYTM-PYTM0123456-127404613871-PAYMENT FROM PHONE",
+            "bank": "IDFC Bank"
+          },
+          {
+            "amount": 80935,
+            "date": "2025-07-09",
+            "narration": "20201222147613830340/PAYTMPAYTMMONEYMUTUA",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80847,
+            "date": "2025-05-27",
+            "narration": "UPI-RAJESH-PAYTMQR28100505010115KDL9E9P7TK@PAYTM-PYTM0123456-031624391996-PAYMENT FROM PHONE",
+            "bank": "Union Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-GET",
+        "amount": 80466.33333333333,
+        "formatted_amount": "₹80,466",
+        "frequency": "Weekly",
+        "frequency_days": 0,
+        "count": 3,
+        "monthly_equivalent": 321865.3333333333,
+        "formatted_monthly_equivalent": "₹321,865",
+        "sample_narration": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511896593-SIMPL REPAYMENT TO",
+        "first_occurrence": "2025-07-09",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80476,
+            "date": "2025-07-09",
+            "narration": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511896593-SIMPL REPAYMENT TO",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80493,
+            "date": "2025-07-09",
+            "narration": "UPI-GET SIMPL TECHNOLOGI-GETSIMPL.RAZORPAY@HDFCBANK-HDFC0000053-009511896593-SIMPL REPAYMENT TO",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80430,
+            "date": "2025-07-09",
+            "narration": "UPI-GET SIMPL TECHNOLOGI-SIMPL@AXISBANK-UTIB0000100-035714694623-SIMPL",
+            "bank": "IDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "OLA",
+        "amount": 80404.5,
+        "formatted_amount": "₹80,404",
+        "frequency": "Weekly",
+        "frequency_days": 0,
+        "count": 2,
+        "monthly_equivalent": 321618,
+        "formatted_monthly_equivalent": "₹321,618",
+        "sample_narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-126041436693-PAYMENT FOR C9725A",
+        "first_occurrence": "2025-07-09",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80514,
+            "date": "2025-07-09",
+            "narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-126041436693-PAYMENT FOR C9725A",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80295,
+            "date": "2025-07-09",
+            "narration": "UPI-OLA-OLAONLINE@YBL-YESB0YBLUPI-123674232023-PAYMENT FOR E54EEA",
+            "bank": "Union Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "SWIGGY",
+        "amount": 80279,
+        "formatted_amount": "₹80,279",
+        "frequency": "Weekly",
+        "frequency_days": 0,
+        "count": 2,
+        "monthly_equivalent": 321116,
+        "formatted_monthly_equivalent": "₹321,116",
+        "sample_narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+        "first_occurrence": "2025-07-09",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80267,
+            "date": "2025-07-09",
+            "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-101783205806-PAYMENT FROM PHONE",
+            "bank": "IDFC Bank"
+          },
+          {
+            "amount": 80291,
+            "date": "2025-07-09",
+            "narration": "UPI-SWIGGY-SWIGGY8@YBL-YESB0YBLUPI-104139133337-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-MR",
+        "amount": 80103.5,
+        "formatted_amount": "₹80,104",
+        "frequency": "Weekly",
+        "frequency_days": 2,
+        "count": 2,
+        "monthly_equivalent": 320414,
+        "formatted_monthly_equivalent": "₹320,414",
+        "sample_narration": "UPI-MR MOHAMMED ZAHEERUL-8884442498@YBL-IDIB000B041-118513918994-PAYMENT FROM PHONE",
+        "first_occurrence": "2025-07-07",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80072,
+            "date": "2025-07-09",
+            "narration": "UPI-MR MOHAMMED ZAHEERUL-8884442498@YBL-IDIB000B041-118513918994-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          },
+          {
+            "amount": 80135,
+            "date": "2025-07-07",
+            "narration": "UPI-MR PRATEEK PATNAIK-PATNAIK.PRATEEK@YBL-IDIB000S176-033939878475-PAYMENT FROM PHONE",
+            "bank": "HDFC Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-ANUJ",
+        "amount": 80279,
+        "formatted_amount": "₹80,279",
+        "frequency": "Monthly",
+        "frequency_days": 31,
+        "count": 2,
+        "monthly_equivalent": 80279,
+        "formatted_monthly_equivalent": "₹80,279",
+        "sample_narration": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+        "first_occurrence": "2025-05-27",
+        "last_occurrence": "2025-06-27",
+        "all_transactions": [
+          {
+            "amount": 80445,
+            "date": "2025-06-27",
+            "narration": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80113,
+            "date": "2025-05-27",
+            "narration": "UPI-ANUJ MITTAL-ANUJMITTAL0801@OKHDFCBANK-HDFC0004460-003213587079-UPI",
+            "bank": "Union Bank"
+          }
+        ]
+      },
+      {
+        "pattern": "UPI-HARDIK",
+        "amount": 80567,
+        "formatted_amount": "₹80,567",
+        "frequency": "Every 43 days",
+        "frequency_days": 43,
+        "count": 2,
+        "monthly_equivalent": 56209.53488372093,
+        "formatted_monthly_equivalent": "₹56,210",
+        "sample_narration": "UPI-HARDIK  AGRAWAL-HARDIK0406AGRAWAL@OKSBI-SBIN0030261-028317839465-SAVINGS",
+        "first_occurrence": "2025-05-27",
+        "last_occurrence": "2025-07-09",
+        "all_transactions": [
+          {
+            "amount": 80978,
+            "date": "2025-05-27",
+            "narration": "UPI-HARDIK  AGRAWAL-HARDIK0406AGRAWAL@OKSBI-SBIN0030261-028317839465-SAVINGS",
+            "bank": "Union Bank"
+          },
+          {
+            "amount": 80156,
+            "date": "2025-07-09",
+            "narration": "UPI-HARDIK  AGRAWAL-9971488189.NIYO@IDFCBANK-IDFB0040101-031108651605-UPI",
+            "bank": "HDFC Bank"
+          }
+        ]
+      }
+    ],
+    "recurring_payments_count": 13,
+    "estimated_monthly_total": 3679730.407899594,
+    "formatted_monthly_total": "₹3,679,730",
+    "analysis_period_days": 180,
+    "top_recurring_payment": {
+      "pattern": "PHONEPE",
+      "amount": 80830,
+      "formatted_amount": "₹80,830",
+      "frequency": "Weekly",
+      "frequency_days": 0,
+      "count": 3,
+      "monthly_equivalent": 323320,
+      "formatted_monthly_equivalent": "₹323,320",
+      "sample_narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+      "first_occurrence": "2025-07-09",
+      "last_occurrence": "2025-07-09",
+      "all_transactions": [
+        {
+          "amount": 80951,
+          "date": "2025-07-09",
+          "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-034274411173-WALLET TOPUP",
+          "bank": "IDFC Bank"
+        },
+        {
+          "amount": 80690,
+          "date": "2025-07-09",
+          "narration": "UPI-PHONEPE-PHONEPEUPITOPUP@YBL-YESB0YBLUPI-030878345040-WALLET TOPUP",
+          "bank": "Union Bank"
+        },
+        {
+          "amount": 80849,
+          "date": "2025-07-09",
+          "narration": "UPI-PHONEPE-BILLDESKPP@YBL-YESB0YBLUPI-022533819900-PAYMENT FOR CATEGO",
+          "bank": "HDFC Bank"
+        }
+      ]
+    },
+    "frequency_distribution": {
+      "monthly": 1,
+      "quarterly": 0,
+      "yearly": 0,
+      "weekly": 11,
+      "other": 1
+    }
+  }
+}
+
+
+curl -X 'GET' \
+  'http://localhost:8000/tools/investment/5555555555' \
+  -H 'accept: application/json'
+
+{
+  "get_core_investment_data": {
+    "mutual_fund_summary": [],
+    "stock_holdings_summary": [
+      {
+        "stock_name": "Stock Holdings",
+        "current_value": 200642,
+        "quantity": 0
+      }
+    ],
+    "recent_transactions": [
+      {
+        "date": "2022-03-09",
+        "type": "BUY",
+        "asset": "ICICI Prudential Nifty 50 Index Fund - D",
+        "amt": 10027
+      }
+    ]
+  },
+  "get_fund_details": {
+    "error": "InvestmentAnalystAgent.get_fund_details() missing 1 required positional argument: 'fund_name_query'"
+  },
+  "get_portfolio_performance_summary": {
+    "status": "ERROR",
+    "message": "No valid mutual fund data found.",
+    "total_invested": 0,
+    "current_value": 0,
+    "absolute_gain": 0,
+    "overall_xirr": 0
+  },
+  "get_processed_investment_portfolio": {
+    "mutual_fund_holdings": [],
+    "stock_holdings": [
+      {
+        "issuer_name": "VINTRON INFORMATICS LIMITED",
+        "isin": "INE043B01028",
+        "units": 12,
+        "last_price": 5.85,
+        "total_value": 70.19999999999999,
+        "formatted_value": "₹70",
+        "formatted_price": "₹5.85"
+      },
+      {
+        "issuer_name": "TRIVENI-EQ FV 1",
+        "isin": "INE916P01025",
+        "units": 24,
+        "last_price": 13,
+        "total_value": 312,
+        "formatted_value": "₹312",
+        "formatted_price": "₹13.00"
+      },
+      {
+        "issuer_name": "HDFC BANK LIMITED",
+        "isin": "INE040A01034",
+        "units": 12,
+        "last_price": 1625,
+        "total_value": 19500,
+        "formatted_value": "₹19,500",
+        "formatted_price": "₹1,625.00"
+      },
+      {
+        "issuer_name": "VINTRON INFORMATICS LIMITED",
+        "isin": "INE043B01028",
+        "units": 12,
+        "last_price": 5.85,
+        "total_value": 70.19999999999999,
+        "formatted_value": "₹70",
+        "formatted_price": "₹5.85"
+      },
+      {
+        "issuer_name": "TRIVENI-EQ FV 1",
+        "isin": "INE916P01025",
+        "units": 24,
+        "last_price": 13,
+        "total_value": 312,
+        "formatted_value": "₹312",
+        "formatted_price": "₹13.00"
+      },
+      {
+        "issuer_name": "HDFC BANK LIMITED",
+        "isin": "INE040A01034",
+        "units": 12,
+        "last_price": 1625,
+        "total_value": 19500,
+        "formatted_value": "₹19,500",
+        "formatted_price": "₹1,625.00"
+      }
+    ],
+    "portfolio_summary": {
+      "total_mutual_fund_invested": 0,
+      "total_mutual_fund_current": 0,
+      "total_stock_value": 39764.4,
+      "total_portfolio_value": 39764.4,
+      "mutual_fund_count": 0,
+      "stock_count": 6,
+      "formatted_total_portfolio": "₹39,764",
+      "formatted_mf_invested": "₹0",
+      "formatted_mf_current": "₹0",
+      "formatted_stock_value": "₹39,764"
+    },
+    "asset_class_distribution": {},
+    "performance_analysis": {
+      "status": "ERROR",
+      "message": "No valid mutual fund data found.",
+      "total_invested": 0,
+      "current_value": 0,
+      "absolute_gain": 0,
+      "overall_xirr": 0
+    },
+    "underperforming_funds": [],
+    "top_performers": [],
+    "worst_performers": [],
+    "portfolio_health_indicators": {
+      "diversified_across_asset_classes": false,
+      "has_underperforming_funds": false,
+      "positive_overall_returns": false,
+      "stock_equity_exposure": true,
+      "concentrated_in_single_asset_class": false
+    },
+    "data_completeness": {
+      "net_worth_data_available": true,
+      "mf_transactions_available": true,
+      "stock_transactions_available": true,
+      "portfolio_performance_available": false,
+      "mutual_fund_holdings_available": false,
+      "stock_holdings_available": true
+    }
+  },
+  "identify_underperforming_funds": []
+}
+
+Curl
+
+curl -X 'GET' \
+  'http://localhost:8000/tools/loan/5555555555' \
+  -H 'accept: application/json'
+{
+  "get_core_credit_report_data": {
+    "credit_summary": {},
+    "active_accounts": []
+  },
+  "get_credit_score_analysis": {
+    "status": "ERROR",
+    "message": "Credit report data is not available for analysis.",
+    "credit_score": null,
+    "negative_accounts": []
+  },
+  "get_processed_credit_data": {
+    "error": "Error processing credit data: '>=' not supported between instances of 'NoneType' and 'int'",
+    "credit_score_summary": {},
+    "loan_strategy": {},
+    "active_loans_list": [],
+    "account_summary": {},
+    "detailed_loan_accounts": [],
+    "detailed_credit_card_accounts": [],
+    "other_credit_accounts": [],
+    "recent_inquiries": [],
+    "aggregate_metrics": {},
+    "credit_health_indicators": {},
+    "overall_credit_health_score": 0,
+    "data_completeness": {}
+  },
+  "list_all_active_loans": [],
+  "suggest_loan_prepayment_strategy": {
+    "status": "ERROR",
+    "message": "Credit report data is not available for loan analysis.",
+    "prioritized_loans": [],
+    "total_outstanding": 0
+  }
+}
+
+curl -X 'GET' \
+  'http://localhost:8000/tools/financial_audit/5555555555' \
+  -H 'accept: application/json'
+
+{
+  "audit_asset_allocation": {
+    "anomaly_code": "ASSET_MISALLOCATION",
+    "anomaly_title": "Asset Misallocation - Over-saving",
+    "description": "Over 54.4% of your assets are in low-growth savings/FDs, potentially losing value to inflation for someone of age 30.",
+    "recommendation": "Consider moving some funds to growth-oriented investments like equity mutual funds or stocks for better long-term returns.",
+    "details": {
+      "low_yield_assets_amount": 740841,
+      "total_assets_amount": 1360797,
+      "low_yield_ratio": 0.5444169850462633,
+      "threshold": 0.4,
+      "age": 30,
+      "age_threshold": 45
+    }
+  },
+  "audit_bad_debt_ratio": null,
+  "audit_high_credit_utilization": null,
+  "audit_inoperative_epf_accounts": {
+    "anomaly_code": "INOPERATIVE_EPF_ACCOUNTS",
+    "anomaly_title": "Inoperative EPF Accounts Detected",
+    "description": "Found 2 old EPF account(s) from previous employer(s) that may be inoperative.",
+    "recommendation": "Consolidate all PF accounts under your current UAN to ensure continued interest accrual and avoid losing track of your retirement savings.",
+    "details": {
+      "old_accounts_count": 2,
+      "old_accounts": [
+        {
+          "company_name": "KARZA TECHNOLOGIES PRIVATE LIMITED",
+          "date_of_joining": "24-03-2021",
+          "date_of_exit": "02-01-2022"
+        },
+        {
+          "company_name": "TSS CONSULTANCY PRIVATE LIMITED",
+          "date_of_joining": "07-08-2018",
+          "date_of_exit": "02-01-2022"
+        }
+      ],
+      "action_required": "Transfer or consolidate accounts"
+    }
+  },
+  "audit_lifestyle_creep": null,
+  "audit_negative_payment_history": null,
+  "audit_net_worth_growth": null,
+  "audit_regular_vs_direct_plans": null,
+  "audit_stock_concentration_risk": {
+    "anomaly_code": "STOCK_CONCENTRATION_RISK",
+    "anomaly_title": "Over-Concentration in Single Stock",
+    "description": "The stock HDFC BANK LIMITED makes up 98.1% of your equity portfolio, exposing you to significant concentration risk.",
+    "recommendation": "Diversify your equity holdings to reduce risk. Consider limiting individual stock positions to less than 15% of your total equity portfolio.",
+    "details": {
+      "total_equity_portfolio_value": 39764.4,
+      "concentration_threshold": 0.15,
+      "concentrated_stocks_count": 1,
+      "concentrated_stocks": [
+        {
+          "stock_name": "HDFC BANK LIMITED",
+          "stock_value": 39000,
+          "concentration_percentage": 0.9807767752059631,
+          "concentration_ratio": 0.9807767752059631
+        }
+      ],
+      "top_concentrated_stock": {
+        "stock_name": "HDFC BANK LIMITED",
+        "stock_value": 39000,
+        "concentration_percentage": 0.9807767752059631,
+        "concentration_ratio": 0.9807767752059631
+      }
+    }
+  },
+  "audit_wealth_leaking_fees": null,
+  "get_processed_financial_health_data": {
+    "key_health_indicators": {
+      "net_worth": {
+        "total_net_worth": 1360797,
+        "bad_debt_to_asset_ratio": 0,
+        "bad_debt_amount": 0,
+        "total_assets_amount": 1360797
+      },
+      "asset_allocation": {
+        "savings_and_fds_percentage": 0.5444169850462633,
+        "equity_and_mf_percentage": 0.30044525377407505,
+        "cash_heavy_allocation": true
+      },
+      "credit_profile": {
+        "credit_score": null,
+        "accounts_with_negative_history": 0,
+        "credit_utilization_ratio": null,
+        "credit_health_status": "UNKNOWN"
+      }
+    },
+    "data_completeness_check": {
+      "net_worth_data_available": true,
+      "credit_report_available": true,
+      "bank_transactions_available": true,
+      "mf_transactions_available": true,
+      "stock_transactions_available": true,
+      "epf_details_available": true
+    },
+    "calculated_metrics": {
+      "risk_indicators": {
+        "high_bad_debt_ratio": false,
+        "over_saving": true,
+        "negative_net_worth": false,
+        "poor_credit_history": false
+      }
+    }
+  },
+  "run_full_financial_audit": {
+    "audit_summary": {
+      "total_anomalies_found": 3,
+      "status": "ANOMALIES_DETECTED",
+      "summary_message": "Financial Health Audit Complete: Found 3 potential issue(s).",
+      "audit_timestamp": "2025-07-27T00:09:38.636511",
+      "data_sources_checked": [
+        "net_worth_data",
+        "credit_report",
+        "bank_transactions",
+        "mf_transactions",
+        "stock_transactions",
+        "epf_details"
+      ]
+    },
+    "detected_anomalies": [
+      {
+        "anomaly_code": "ASSET_MISALLOCATION",
+        "anomaly_title": "Asset Misallocation - Over-saving",
+        "description": "Over 54.4% of your assets are in low-growth savings/FDs, potentially losing value to inflation for someone of age 30.",
+        "recommendation": "Consider moving some funds to growth-oriented investments like equity mutual funds or stocks for better long-term returns.",
+        "details": {
+          "low_yield_assets_amount": 740841,
+          "total_assets_amount": 1360797,
+          "low_yield_ratio": 0.5444169850462633,
+          "threshold": 0.4,
+          "age": 30,
+          "age_threshold": 45
+        }
+      },
+      {
+        "anomaly_code": "STOCK_CONCENTRATION_RISK",
+        "anomaly_title": "Over-Concentration in Single Stock",
+        "description": "The stock HDFC BANK LIMITED makes up 98.1% of your equity portfolio, exposing you to significant concentration risk.",
+        "recommendation": "Diversify your equity holdings to reduce risk. Consider limiting individual stock positions to less than 15% of your total equity portfolio.",
+        "details": {
+          "total_equity_portfolio_value": 39764.4,
+          "concentration_threshold": 0.15,
+          "concentrated_stocks_count": 1,
+          "concentrated_stocks": [
+            {
+              "stock_name": "HDFC BANK LIMITED",
+              "stock_value": 39000,
+              "concentration_percentage": 0.9807767752059631,
+              "concentration_ratio": 0.9807767752059631
+            }
+          ],
+          "top_concentrated_stock": {
+            "stock_name": "HDFC BANK LIMITED",
+            "stock_value": 39000,
+            "concentration_percentage": 0.9807767752059631,
+            "concentration_ratio": 0.9807767752059631
+          }
+        }
+      },
+      {
+        "anomaly_code": "INOPERATIVE_EPF_ACCOUNTS",
+        "anomaly_title": "Inoperative EPF Accounts Detected",
+        "description": "Found 2 old EPF account(s) from previous employer(s) that may be inoperative.",
+        "recommendation": "Consolidate all PF accounts under your current UAN to ensure continued interest accrual and avoid losing track of your retirement savings.",
+        "details": {
+          "old_accounts_count": 2,
+          "old_accounts": [
+            {
+              "company_name": "KARZA TECHNOLOGIES PRIVATE LIMITED",
+              "date_of_joining": "24-03-2021",
+              "date_of_exit": "02-01-2022"
+            },
+            {
+              "company_name": "TSS CONSULTANCY PRIVATE LIMITED",
+              "date_of_joining": "07-08-2018",
+              "date_of_exit": "02-01-2022"
+            }
+          ],
+          "action_required": "Transfer or consolidate accounts"
+        }
+      }
+    ]
+  }
+}

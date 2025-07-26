@@ -1,0 +1,34 @@
+[
+  {
+    "question_id": "NW-001",
+    "user_id": "2222222222",
+    "question": "What is my total net worth?",
+    "evaluation_type": "llm_as_judge",
+    "answer_keywords": ["net worth", "₹", "658,305"],
+    "purpose": "Tests basic data retrieval for the NetWorth Agent."
+  },
+  {
+    "question_id": "EXP-001",
+    "user_id": "7777777777",
+    "question": "What are my top 3 spending categories in the last 90 days?",
+    "evaluation_type": "llm_as_judge",
+    "answer_keywords": ["spending breakdown", "Miscellaneous", "Financial Services", "Bills & Utilities"],
+    "purpose": "Tests expense categorization and summarization for the Expense Agent."
+  },
+  {
+    "question_id": "INV-001",
+    "user_id": "7777777777",
+    "question": "Are any of my mutual funds underperforming a 10% XIRR?",
+    "evaluation_type": "llm_as_judge",
+    "answer_keywords": ["underperforming", "IDBI India Top 100 Equity Fund"],
+    "purpose": "Tests investment analysis and conditional logic for the Investment Agent."
+  },
+  {
+    "question_id": "GEN-001",
+    "user_id": "2222222222",
+    "question": "What are the tax benefits available under Section 80C of the Income Tax Act in India for the financial year 2024-2025?",
+    "evaluation_type": "llm_as_judge",
+    "answer_keywords": ["1.5 lakh", "EPF", "ELSS", "Public Provident Fund", "Tuition Fees"],
+    "purpose": "Tests the General Knowledge Agent's ability to retrieve accurate, current information via search."
+  }
+]

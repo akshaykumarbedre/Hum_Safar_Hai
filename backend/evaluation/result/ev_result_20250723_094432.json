@@ -1,0 +1,84 @@
+{
+  "evaluation_metadata": {
+    "timestamp": "20250723_094432",
+    "total_test_cases": 4,
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate_percentage": 100.0
+  },
+  "test_results": [
+    {
+      "question_id": "NW-001",
+      "user_id": "2222222222",
+      "question": "What is my total net worth?",
+      "evaluation_type": "llm_as_judge",
+      "answer_keywords": [
+        "net worth",
+        "₹",
+        "658,305"
+      ],
+      "purpose": "Tests basic data retrieval for the NetWorth Agent.",
+      "generated_answer": "Your total net worth is ₹658,305.00.\n",
+      "result": {
+        "status": "PASS",
+        "details": "LLM Judge Score: 5/5 - The AI response accurately and completely answers the user's question about their total net worth, including the correct amount (₹658,305) as identified in the expected keywords. The response is clear, concise, and directly relevant to the question."
+      }
+    },
+    {
+      "question_id": "EXP-001",
+      "user_id": "7777777777",
+      "question": "What are my top 3 spending categories in the last 90 days?",
+      "evaluation_type": "llm_as_judge",
+      "answer_keywords": [
+        "spending breakdown",
+        "Miscellaneous",
+        "Financial Services",
+        "Bills & Utilities"
+      ],
+      "purpose": "Tests expense categorization and summarization for the Expense Agent.",
+      "generated_answer": "OK. I wasn't able to identify your top spending categories because there were no debit transactions in the last 90 days. Would you like me to check a different time period?\n",
+      "result": {
+        "status": "PASS",
+        "details": "LLM Judge Score: 5/5 - The AI response is accurate, relevant, and helpful because it addresses the user's question, provides a reason for not being able to fulfill the request, and offers an alternative solution."
+      }
+    },
+    {
+      "question_id": "INV-001",
+      "user_id": "7777777777",
+      "question": "Are any of my mutual funds underperforming a 10% XIRR?",
+      "evaluation_type": "llm_as_judge",
+      "answer_keywords": [
+        "underperforming",
+        "IDBI India Top 100 Equity Fund"
+      ],
+      "purpose": "Tests investment analysis and conditional logic for the Investment Agent.",
+      "generated_answer": "Yes, I found 2 underperforming funds. The IDBI India Top 100 Equity Fund - Regular Plan Growth has an XIRR of -4.82%, and the LIC MF Infrastructure Fund - Regular Plan Growth has an XIRR of 2.10%. Both are below the 10% XIRR threshold.\n",
+      "result": {
+        "status": "PASS",
+        "details": "LLM Judge Score: 5/5 - The AI response accurately identifies and lists mutual funds underperforming a 10% XIRR. It provides specific fund names and their corresponding XIRR values, making the information clear, relevant, and directly responsive to the question."
+      }
+    },
+    {
+      "question_id": "GEN-001",
+      "user_id": "2222222222",
+      "question": "What are the tax benefits available under Section 80C of the Income Tax Act in India for the financial year 2024-2025?",
+      "evaluation_type": "llm_as_judge",
+      "answer_keywords": [
+        "1.5 lakh",
+        "EPF",
+        "ELSS",
+        "Public Provident Fund",
+        "Tuition Fees"
+      ],
+      "purpose": "Tests the General Knowledge Agent's ability to retrieve accurate, current information via search.",
+      "generated_answer": "Okay, here's a summary of the tax benefits available under Section 80C of the Income Tax Act in India for the financial year 2024-2025:\n\n**Key Points:**\n\n*   **Maximum Deduction:** You can claim a maximum deduction of ₹1.5 lakh per year under Section 80C.\n*   **Tax Regime:** Deductions under Section 80C are available only under the Old Tax Regime and are not allowed under the New Tax Regime.\n\n**Eligible Investments and Expenditures:**\n\n*   Employee Provident Fund (EPF)\n*   Public Provident Fund (PPF)\n*   Life Insurance Premiums\n*   Equity Linked Savings Schemes (ELSS)\n*   National Savings Certificates (NSC)\n*   Tax Saving Fixed Deposits (FDs)\n*   Sukanya Samriddhi Yojana (SSY)\n*   Unit Linked Insurance Plans (ULIPs)\n*   Home Loan Principal Repayment\n*   Tuition Fees for Children\n*   Senior Citizen Savings Scheme (SCSS)\n*   National Pension System (NPS): You can claim an additional deduction of ₹50,000 under Section 80CCD(1B) for contributions made to NPS.\n\n**Important Considerations:**\n\n*   The availability of Section 80C deductions depends on the tax regime you choose (Old vs. New).\n*   Consider consulting with a financial advisor to create a personalized tax-saving plan.\n*   Diversifying investments across different assets helps mitigate risk and ensures maximum benefits under Section 80C.\n*   Stay updated on any changes in the Income Tax Bill that may affect Section 80C.",
+      "result": {
+        "status": "PASS",
+        "details": "LLM Judge Score: 5/5 - The response is excellent because it accurately and comprehensively explains the tax benefits available under Section 80C of the Income Tax Act in India for the financial year 2024-2025. It includes all the keywords requested. The AI response provides a structured breakdown of the maximum deduction limit, the tax regime under which the deductions are applicable, and an extensive list of eligible investments and expenditures. It also offers important considerations for taxpayers, such as the impact of choosing between the old and new tax regimes and the benefits of diversifying investments. The suggestion to consult a financial advisor adds further value to the advice."
+      }
+    }
+  ],
+  "summary": {
+    "failed_test_cases": []
+  }
+}

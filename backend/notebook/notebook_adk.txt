@@ -1,0 +1,176 @@
+from dotenv import load_dotenv
+import os
+load_dotenv()
+os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
+# @title Define Agent Interaction Function
+from google.genai import types # For creating message Content/Parts
+async def call_agent_async(query: str, runner, user_id, session_id):
+ """Sends a query to the agent and prints the final response."""
+ # Prepare the user's message in ADK format
+ content = types.Content(role='user', parts=[types.Part(text=query)])
+ final_response_text = "Agent did not produce a final response." #
+Default
+ # Key Concept: run_async executes the agent logic and yields Events.
+ # We iterate through events to find the final answer.
+ async for event in runner.run_async(user_id=user_id,
+session_id=session_id, new_message=content):
+ # You can uncomment the line below to see *all* events during
+execution
+ # print(f" [Event] Author: {event.author}, Type:
+{type(event).__name__}, Final: {event.is_final_response()}, Content:
+{event.content}")
+ # Key Concept: is_final_response() marks the concluding message
+for the turn.
+ if event.is_final_response():
+ if event.content and event.content.parts:
+ # Assuming text response in the first part
+ final_response_text = event.content.parts[0].text
+ elif event.actions and event.actions.escalate: # Handle
+potential errors/escalations
+ final_response_text = f"Agent escalated:
+{event.error_message or 'No specific message.'}"
+ # Add more checks here if needed (e.g., specific error
+codes)
+ break # Stop processing events once the final response is
+found
+ print(f"<<< Agent Response: {final_response_text}")
+ return final_response_text
+Exp_Agent=ExpenseAndCashflowAgent(dal)
+Inv_Agent=InvestmentAnalystAgent(dal)
+Loan_Agent=LoanAndCreditAgent(dal)
+NetWorth_Agent=NetWorthAndHealthAgent(dal)
+# Create a separate tool list for each agent
+expense_tools = [Exp_Agent.get_spending_summary]
+investment_tools = [Inv_Agent.identify_underperforming_funds]
+loan_tools = [Loan_Agent.get_credit_score_analysis]
+networth_tools = [
+ NetWorth_Agent.get_asset_breakdown,
+ NetWorth_Agent.get_liability_breakdown,
+ NetWorth_Agent.get_net_worth_summary
+]
+Loan_Agent.get_credit_score_analysis()
+'Your credit score is 746, which is good. You have 4 accounts with
+delayed payment history (HDFC Bank, Aditya Brila Finance Limited,
+Epifi Capital, Mannapuram Finance), which may be impacting your
+score.'
+session_service = InMemorySessionService()
+# Define constants for identifying the interaction context
+APP_NAME = "weather_tutorial_app"
+USER_ID = "user_1"
+SESSION_ID = "session_001" # Using a fixed ID for simplicity
+# Create the specific session where the conversation will happen
+session = await session_service.create_session(
+ app_name=APP_NAME,
+ user_id=USER_ID,
+ session_id=SESSION_ID
+)
+print(f"Session created: App='{APP_NAME}', User='{USER_ID}',
+Session='{SESSION_ID}'")
+Session created: App='weather_tutorial_app', User='user_1',
+Session='session_001'
+# Create four different agents, each with their respective tools
+model="gemini-2.0-flash" #"gemini-2.5-flash" #"gemini-2.5-pro" # or
+"gemini-2.5-flash" for flash model
+expense_agent = Agent(
+ name="Expense_Agent",
+ model=model,
+ description="Handles expense and cashflow queries.",
+ tools=expense_tools
+)
+investment_agent = Agent(
+ name="Investment_Agent",
+ model=model,
+ description="Handles investment analysis queries.",
+ tools=investment_tools
+)
+loan_agent = Agent(
+ name="Loan_Agent",
+ model=model,
+ description="Handles loan and credit queries.",
+ tools=loan_tools
+)
+networth_agent = Agent(
+ name="NetWorth_Agent",
+ model=model,
+ description="Handles net worth and financial health queries.",
+ tools=networth_tools
+)
+from google.adk.tools import agent_tool
+agent_tool=[agent_tool.AgentTool(agent=expense_agent),agent_tool.Agent
+Tool(agent=investment_agent),
+agent_tool.AgentTool(agent=loan_agent),agent_tool.AgentTool(agent=netw
+orth_agent)]
+query_decomposition_agent = Agent(
+ name="Query_Decomposition_Agent",
+ model=model,
+ description="Handles query decomposition and delegates to subagents.",
+ tools=agent_tool, # Use agent_tool list for tools
+)
+# Key Concept: Runner orchestrates the agent execution loop.
+runner = Runner(
+ agent=query_decomposition_agent, # The agent we want to run
+ app_name=APP_NAME, # Associates runs with our app
+ session_service=session_service # Uses our session manager
+)
+print(f"Runner created for agent '{runner.agent.name}'.")
+Runner created for agent 'Query_Decomposition_Agent'.
+result = await call_agent_async(
+ "Provide a detailed summary of my assets, liabilities, and
+expenses for the last 30 days. Also, analyze any unusual spending
+patterns and suggest ways to optimize my financial health.",
+ runner=runner,
+ user_id=USER_ID,
+ session_id=SESSION_ID
+)
+Warning: there are non-text parts in the response: ['function_call',
+'function_call'], returning concatenated text result from text parts.
+Check the full candidates.content.parts accessor to get the full model
+response.
+Warning: there are non-text parts in the response: ['function_call',
+'function_call'], returning concatenated text result from text parts.
+Check the full candidates.content.parts accessor to get the full model
+response.
+Default value is not supported in function declaration schema for
+Google AI.
+Warning: there are non-text parts in the response: ['function_call'],
+returning concatenated text result from text parts. Check the full
+candidates.content.parts accessor to get the full model response.
+Default value is not supported in function declaration schema for
+Google AI.
+<<< Agent Response: Here is a summary of your financial situation:
+**Assets:**
+* Mutual Funds: ₹84,642.00
+* Employee Provident Fund (EPF): ₹211,111.00
+* Indian Securities: ₹200,642.00
+* Savings Accounts: ₹195,297.00
+* US Securities: ₹30,613.00
+**Liabilities:**
+* Vehicle Loan: ₹5,000.00
+* Home Loan: ₹17,000.00
+* Other Loans: ₹42,000.00
+**Expenses (Last 30 Days):**
+* Miscellaneous: ₹1,690,773
+* Financial Services: ₹403,444
+* Bills & Utilities: ₹160,955
+* Transportation: ₹80,565
+* Food & Dining: ₹80,291
+* Total spending: ₹2,416,028
+**Analysis and Recommendations:**
+* **High Miscellaneous Spending:** A significant portion of your
+spending falls under the "Miscellaneous" category. It is essential to
+investigate these transactions further to understand what they are.
+Identifying and categorizing these expenses more accurately will
+provide a clearer picture of your spending habits.
+* **Financial Services Spending:** Your spending on financial
+services is also relatively high. Review these expenses to ensure they
+are necessary and cost-effective.
+* **Optimize Spending:** Look for opportunities to reduce spending
+in categories like transportation and food & dining. Consider using
+public transportation, cooking at home more often, and packing your
+lunch to save money.
+* **Reduce Liabilities:** Consider strategies to pay down your loans
+faster, such as making extra payments or consolidating your debts.
+This will reduce your interest expenses and improve your overall
+financial health.
+By carefully analyzing your spending patterns and implementing these
+recommendations, you can optimize your

@@ -51,7 +51,7 @@ export default function ChatPage() {
         // Call backend /query endpoint with selected user_id, session_id, and query
         const payload = {
           user_id: selectedUserId,
-          session_id: undefined, // Add session_id if available
+          session_id: "undefined", // Add session_id if available
           query: input,
         };
         const response = await fetch("http://localhost:8000/query", {

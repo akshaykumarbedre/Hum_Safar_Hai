@@ -48,7 +48,7 @@ USER_ID = "4444444444"  # Using the "Debt-Heavy Low Performer" for a rich test c
 dal = FIMCPDataAccess(phone_number=USER_ID)
 
 # --- 2. Create the orchestrator using the factory function ---
-model = "gemini-2.0-flash"
+model = "gemini-2.5-flash"
 orchestrator_agent = create_financial_orchestrator(dal, model)
 
 async def main():

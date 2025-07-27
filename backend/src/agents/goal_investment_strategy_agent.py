@@ -343,6 +343,7 @@ class GoalInvestmentStrategyAgent:
         male_assets = []
         female_assets = []
 
+        print('I am in the create goal agent',self.final_discussion)
         if(not self.final_discussion or 'asset_ladder' not in self.final_discussion):
             return "First finalise the asset ladder for this goal before creating the goal"
 
@@ -875,10 +876,6 @@ class GoalInvestmentStrategyAgent:
                         
                         for j,asset in enumerate(goal['female_assets']):
                             self.goals[i]['female_assets'][j]['amount'] /= no_of_pledged
-                
-                print('HERER')
-                print(self.goals)
-                print(pledged_male_contribution/no_of_pledged,pledged_female_contribution/no_of_pledged )
 
                 self.male_monthly_contribution = pledged_male_contribution/no_of_pledged
                 self.female_monthly_contribution = pledged_female_contribution/no_of_pledged
@@ -1058,5 +1055,6 @@ Remember: Always start with safe options, then progressively show how aggressive
         name="Goal_Investment_Strategy_Agent",
         model=model,
         instruction=agent_description,
+        description = "Provides personalized goal-based investment and savings strategies for couples, based on asset types, expected returns, and timelines.",
         tools=goal_strategy_tools,
     )

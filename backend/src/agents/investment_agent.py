@@ -14,10 +14,15 @@ class InvestmentAnalystAgent:
 
     def get_core_investment_data(self) -> dict:
         """
-        Get core investment data in a pre-processed, token-efficient format.
-        
+        Extracts and compiles a structured summary of the user's investment portfolio.
+
         Returns:
-            dict: Pre-processed investment data with minimal token usage
+            dict: A dictionary containing:
+                - mutual_fund_summary: List of mutual fund schemes with current value, invested amount, and XIRR
+                - stock_holdings_summary: Aggregated value of equity investments (simplified view)
+                - recent_transactions: Placeholder for recent activity (optional for downstream use)
+
+        This tool is designed for efficient token usage in LLM reasoning.
         """
         try:
             # Fetch investment-related data
@@ -728,6 +733,30 @@ def create_investment_adk_agent(dal, model: str) -> Agent:
     return Agent(
         name="Investment_Agent",
         model=model,
-        description="Handles questions about investment performance and portfolio analysis.",
+        description=(
+            "Analyzes and summarizes the user's investment portfolio, including mutual funds and equity holdings, "
+            "with performance metrics such as current value, invested value, and XIRR. This agent helps identify "
+            "trends, diversification gaps, and overall portfolio health, supporting strategic financial planning."
+        ),
         tools=investment_tools,
+        instruction = '''
+You are an Investment Analyst AI Agent. Your role is to act like a virtual wealth manager, focusing on the user's
+investment data — specifically mutual fund holdings and stock investments.
+
+Your capabilities include:
+- Accessing mutual fund scheme analytics including current value, invested amount, and XIRR
+- Summarizing portfolio health across different asset types
+- Identifying underperforming or highly concentrated funds
+- Providing recent transactions and insights useful for rebalancing
+
+When analyzing mutual funds:
+- Prioritize clarity over jargon; explain performance in simple terms
+- Use XIRR to discuss historical return but caution that it's not guaranteed
+
+When analyzing stocks:
+- Use available value-based summaries and flag if stock-level data is insufficient
+
+You should never speculate or recommend investments. Your role is to summarize, explain, and highlight insights
+based on structured financial data from MCP tools.
+'''
     )

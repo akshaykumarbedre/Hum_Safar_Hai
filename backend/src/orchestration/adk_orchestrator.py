@@ -48,15 +48,32 @@ def create_financial_orchestrator(dal, model: str) -> Agent:
     orchestrator_agent = Agent(
         name="Financial_Orchestrator_Agent",
         model=model,
-        description=(
-            "You are a master financial assistant. Your job is to understand a user's query, "
-            "break it down, and delegate parts to the correct specialist agent. "
-            "Use the General_Knowledge_Agent for public information like tax laws. "
-            "Use the other agents for the user's personal financial data. "
-            "Use the Goal_Investment_Strategy_Agent for savings recommendations, financial goals, "
-            "investment timelines, and when users ask about reaching goals 'faster' or 'quicker'. "
-            "Finally, synthesize the information into a single, comprehensive response."
-        ),
+        description = (
+    "Acts as a central AI assistant that understands user financial queries, breaks them into sub-tasks, "
+    "and routes them to the most relevant specialized agent (e.g., loans, expenses, net worth). "
+    "Synthesizes the final response after collecting insights from domain experts. "
+    "Use this agent to get unified, multi-domain financial guidance."
+),
+        instruction = """
+You are a master-level financial orchestrator. Your role is to interpret complex user queries and intelligently route them
+to the most appropriate financial specialist agents.
+
+Here's how to operate:
+- If the query is about tax laws, policies, or public knowledge → delegate to General_Knowledge_Agent
+- If about credit scores, overdue EMIs, or loan balances → use LoanAndCreditAgent
+- If the user asks about investments or returns → use InvestmentAnalystAgent
+- For creating goals, tracking it and querying about the goals and updating it → use GoalInvestmentStrategyAgent
+- For budget tracking or spending summaries → use ExpenseAndCashflowAgent
+- For asset/liability snapshots → use NetWorthAndHealthAgent
+- To detect hidden anomalies or financial issues → use FinancialHealthAuditorAgent
+
+After delegation:
+- Combine all relevant agent outputs
+- Remove redundancy, summarize clearly
+- Present insights in a user-friendly format
+
+You are the user’s single point of financial understanding. Don’t answer from scratch — always leverage the specialist agents.
+""",
         tools=sub_agents_as_tools,
     )
     print(f"✅ Orchestrator Agent '{orchestrator_agent.name}' created.")

@@ -43,23 +43,48 @@ class FIMCPDataAccess:
     
     def _load_data(self, phone_number: str, data_type: str) -> Optional[Dict[str, Any]]:
         """
-        Load data for a specific user and data type.
-        
+        Attempt to load data from MCP tool. If that fails, fallback to local file.
+
         Args:
-            phone_number: User identifier (phone number)
-            data_type: Type of data to fetch (e.g., 'fetch_net_worth.json')
-            
+            tool_name: The MCP tool name (e.g., 'fetch_net_worth')
+
         Returns:
-            Dictionary containing the data or None if not found
+            Dict containing the tool result or file content
         """
+        payload = {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "tools/call",
+            "params": {
+            "name": data_type,
+            "arguments": {
+                "phone_number": phone_number
+                }
+            }
+        }
+
+        headers = {
+            "Content-Type": "application/json",
+            "Mcp-Session-Id": "mcp-session-594e48ea-fea1-40ef-8c52-7552dd9272af"  # Can be anything if your auth is bypassed
+        }
+
+        try:
+            response = requests.post("http://localhost:8080/mcp/stream", json=payload, headers=headers, timeout=10)
+            response.raise_for_status()
+            return response.json()
+        except Exception as e:
+            print(f"❌ MCP call failed for {tool_name}: {e}. Falling back to file.")
+
+        # Fallback to local file
         try:
             file_path = self.data_dir / phone_number / data_type
             if file_path.exists():
                 with open(file_path, 'r', encoding='utf-8') as f:
                     return json.load(f)
-            return None
+            return {}
         except (json.JSONDecodeError, FileNotFoundError, OSError):
-            return None
+            return {}
+
     
     def get_available_users(self) -> List[str]:
         """

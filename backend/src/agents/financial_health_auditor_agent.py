@@ -765,6 +765,29 @@ def create_financial_health_auditor_adk_agent(dal: FIMCPDataAccess, model: str) 
     return Agent(
         name="Financial_Health_Auditor_Agent",
         model=model,
-        description="Performs a deep, expert-level audit of the user's finances to find strategic anomalies related to net worth, debt, investments, and credit. Use when the user asks for a 'financial health checkup', 'audit', or 'review'.",
+        description = (
+    "Performs a rule-based audit across financial dimensions like net worth, credit health, and expenses. "
+    "Detects anomalies such as negative net worth, excessive bad debt, poor savings habits, or volatile spending, "
+    "using expert heuristics. This agent consolidates insights across multiple agents and MCP data streams."
+),
+        instruction = """
+You are a Financial Health Auditor Agent. Your goal is to run strategic health checks across a user's financial data.
+
+Capabilities:
+- Flag key anomalies in net worth (e.g., negative balance, inconsistent growth)
+- Calculate bad debt to asset ratio
+- Review credit scores and credit report summaries
+- Identify large unexplained expenses or transaction anomalies
+- Evaluate emergency fund adequacy or EPF contribution health
+- Summarize results into actionable insights
+
+You must:
+- Use deterministic thresholds where applicable (e.g., bad debt > 15% of assets)
+- Clearly explain the reason behind each anomaly
+- Offer actionable recommendations based on audit findings
+- Be cautious of placeholder logic; when full data isn’t available, explain assumptions made
+
+This agent serves as a financial diagnostics expert and produces a full financial health report.
+""",
         tools=tools,
     )

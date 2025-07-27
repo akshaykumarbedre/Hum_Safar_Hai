@@ -120,7 +120,7 @@ async def get_or_create_runner(user_id: str) -> Runner:
         dal = FIMCPDataAccess(phone_number=user_id)
         
         # Create the orchestrator using the factory function
-        model = "gemini-2.0-flash"
+        model = "gemini-2.5-flash"
         orchestrator_agent = create_financial_orchestrator(dal, model)
         
         # Create the runner

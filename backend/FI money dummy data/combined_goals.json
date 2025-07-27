@@ -1,1 +1,117 @@
-[]
+[
+  {
+    "name": "Wealth Creation (1 Cr)",
+    "target_amount": 10000000.0,
+    "male_assets": [
+      {
+        "asset_name": "HDFC Flexi Cap Fund - Direct Plan - Growth",
+        "amount": 5000
+      },
+      {
+        "asset_name": "Nippon India Small Cap Fund - Direct - Growth",
+        "amount": 3000
+      },
+      {
+        "asset_name": "Axis Midcap Fund - Direct Plan - Growth",
+        "amount": 3000
+      },
+      {
+        "asset_name": "Motilal Oswal S&P 500 Index Fund - Direct - Growth",
+        "amount": 5000
+      },
+      {
+        "asset_name": "Mirae Asset Tax Saver Fund - Direct Plan - Growth",
+        "amount": 50000
+      },
+      {
+        "asset_name": "Tata Digital India Fund - Direct - Growth",
+        "amount": 10000
+      },
+      {
+        "asset_name": "ICICI Prudential Commodities Fund - Direct - Growth",
+        "amount": 10000
+      },
+      {
+        "asset_name": "ICICI Prudential Balanced Advantage - Direct Plan",
+        "amount": 5000
+      },
+      {
+        "asset_name": "ICICI Prudential Short Term Debt Fund - Direct - Growth",
+        "amount": 50000
+      }
+    ],
+    "female_assets": [
+      {
+        "asset_name": "Canara Robeco Gilt Fund - Regular Plan",
+        "amount": 6655.46
+      },
+      {
+        "asset_name": "UTI Overnight - Direct Plan",
+        "amount": 29235.068
+      },
+      {
+        "asset_name": "ICICI Prudential Balanced Advantage - Direct Plan",
+        "amount": 2636
+      },
+      {
+        "asset_name": "ICICI Prudential Nifty 50 Index Fund - Direct Plan Growth ",
+        "amount": 10027
+      }
+    ],
+    "current_corpus": 1556553.528,
+    "male_monthly_contribution": 141000,
+    "female_monthly_contribution": 48553.528,
+    "total_monthly_contribution": 189553.528,
+    "pledged": false
+  },
+  {
+    "name": "Retirement Corpus (10 Cr)",
+    "target_amount": 100000000.0,
+    "male_assets": [
+      {
+        "asset_name": "EPF & Pension",
+        "amount": 1640000.0
+      }
+    ],
+    "female_assets": [
+      {
+        "asset_name": "EPF & Pension",
+        "amount": 1111.0
+      }
+    ],
+    "current_corpus": 3541111.0,
+    "male_monthly_contribution": 1640000.0,
+    "female_monthly_contribution": 1111.0,
+    "total_monthly_contribution": 1641111.0,
+    "pledged": false
+  },
+  {
+    "name": "Car Purchase",
+    "target_amount": 2000000,
+    "male_assets": [
+      {
+        "asset_name": "ICICI Prudential Bluechip Fund - Direct - Growth",
+        "amount": 14000.0
+      },
+      {
+        "asset_name": "Axis Small Cap Fund - Direct Plan - Growth",
+        "amount": 6000.0
+      }
+    ],
+    "female_assets": [
+      {
+        "asset_name": "ICICI Prudential Bluechip Fund - Direct - Growth",
+        "amount": 14000.0
+      },
+      {
+        "asset_name": "Axis Small Cap Fund - Direct Plan - Growth",
+        "amount": 6000.0
+      }
+    ],
+    "current_corpus": 0,
+    "male_monthly_contribution": 20000.0,
+    "female_monthly_contribution": 20000.0,
+    "total_monthly_contribution": 40000.0,
+    "pledged": true
+  }
+]

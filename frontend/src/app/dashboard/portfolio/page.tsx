@@ -4,7 +4,7 @@
 import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import { ArrowUpRight, ArrowDownRight, PiggyBank } from "lucide-react";
+import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart";
 import { useEffect, useState } from "react";
@@ -16,7 +16,6 @@ const initialPortfolioData = {
   currentValue: 0,
   overallGain: 0,
   overallGainPercentage: 0,
-  sips: [] as { name: string; amount: number; nextDueDate: string }[],
   assetAllocation: [] as { name: string; value: number; color: string }[],
   holdings: [] as { name: string; type: string; quantity?: number; units?: number; avgPrice?: number; avgNav?: number; currentValue: number }[],
   stockHoldings: [] as { issuer_name: string; isin: string; units: number; last_price: number; total_value: number; formatted_value: string; formatted_price: string }[],
@@ -40,13 +39,16 @@ const initialPortfolioData = {
   }
 };
 
-type View = "couple" | "5555555555" | "6666666666";
+type View = "couple" | "1212121212" | "2222222222";
 
 const chartConfig = {
   value: { label: "Value" },
-  stocks: { label: "Stocks", color: "hsl(var(--chart-1))" },
-  mutualFunds: { label: "Mutual Funds", color: "hsl(var(--chart-2))" },
-  etfs: { label: "ETFs", color: "hsl(var(--chart-3))" },
+  "Cash & Bank": { label: "Cash & Bank", color: "hsl(var(--chart-1))" },
+  "EPF": { label: "EPF", color: "hsl(var(--chart-2))" },
+  "Indian Stocks": { label: "Indian Stocks", color: "hsl(var(--chart-3))" },
+  "Mutual Funds": { label: "Mutual Funds", color: "hsl(var(--chart-4))" },
+  "US Stocks": { label: "US Stocks", color: "hsl(var(--chart-5))" },
+  "ETFs": { label: "ETFs", color: "hsl(var(--chart-6))" },
 };
 
 const HoldingsTable = ({ holdings, type }: { holdings: any[], type: 'Stock' | 'Mutual Fund' | 'ETF' }) => {
@@ -85,7 +87,7 @@ const HoldingsTable = ({ holdings, type }: { holdings: any[], type: 'Stock' | 'M
                   price = `₹${holding.nav || 0}`;
                   value = `₹${holding.current_value || 0}`;
                 }
-                
+
                 return (
                   <TableRow key={index}>
                     <TableCell className="font-medium">
@@ -109,6 +111,32 @@ const HoldingsTable = ({ holdings, type }: { holdings: any[], type: 'Stock' | 'M
     )
 }
 
+// Add a dedicated StockHoldingsTable component
+const StockHoldingsTable = ({ holdings }: { holdings: any[] }) => (
+  <Table>
+    <TableHeader>
+      <TableRow>
+        <TableHead>Name</TableHead>
+        <TableHead>ISIN</TableHead>
+        <TableHead>Quantity</TableHead>
+        <TableHead className="text-right">Current Price</TableHead>
+        <TableHead className="text-right">Current Value</TableHead>
+      </TableRow>
+    </TableHeader>
+    <TableBody>
+      {holdings.map((holding, idx) => (
+        <TableRow key={idx}>
+          <TableCell className="font-medium">{holding.issuer_name}</TableCell>
+          <TableCell>{holding.isin}</TableCell>
+          <TableCell>{holding.units}</TableCell>
+          <TableCell className="text-right">{holding.formatted_price}</TableCell>
+          <TableCell className="text-right font-semibold">{holding.formatted_value}</TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
+  </Table>
+);
+
 export default function PortfolioPage() {
   const searchParams = useSearchParams();
   const currentView = (searchParams.get("view") as View) || "couple";
@@ -122,7 +150,7 @@ export default function PortfolioPage() {
       setLoading(true);
       setError(null);
       try {
-        const user_id = '5555555555'; // Using the same user ID as dashboard
+        const user_id = currentView; // Using the same user ID as dashboard
 
         // Fetch investment portfolio data
         const response = await fetch(`http://localhost:8000/tools/net_worth/${user_id}`);
@@ -134,9 +162,13 @@ export default function PortfolioPage() {
         console.log("Portfolio Data:", result);
         
         // Extract portfolio data from the response
-        const investmentPortfolio = result.get_processed_investment_portfolio;
+        const get_processed_investment_portfolio = result.get_processed_investment_portfolio;
         const portfolioDiversification = result.get_portfolio_diversification;
         const performanceSummary = result.get_portfolio_performance_summary;
+        
+        console.log("Investment Portfolio:", get_processed_investment_portfolio);
+        console.log("Stock Holdings:", get_processed_investment_portfolio?.stock_holdings);
+        console.log("Mutual Fund Holdings:", get_processed_investment_portfolio?.mutual_fund_holdings);
         
         // Extract ETF holdings from the raw net worth data
         let etfHoldings: any[] = [];
@@ -162,44 +194,64 @@ export default function PortfolioPage() {
         const overallGainPercentage = totalInvested > 0 ? (overallGain / totalInvested) * 100 : 0;
         
         // Create asset allocation data from portfolio diversification
-        const stockValue = portfolioDiversification?.asset_allocation?.stocks || 0;
-        const mfValue = portfolioDiversification?.asset_allocation?.mutual_funds || 0;
-        const etfValue = etfHoldings.reduce((sum, etf) => sum + etf.currentValue, 0);
+        const assetAllocation = portfolioDiversification?.asset_allocation?.map((item: any) => ({
+          name: item.category,
+          value: item.amount,
+          percentage: item.percentage,
+          formatted_amount: item.formatted_amount,
+          color: getAssetColor(item.category)
+        })) || [];
         
-        const assetAllocation = [];
-        if (stockValue > 0) {
-          assetAllocation.push({ name: "Stocks", value: stockValue, color: "hsl(var(--chart-1))" });
-        }
-        if (mfValue > 0) {
-          assetAllocation.push({ name: "Mutual Funds", value: mfValue, color: "hsl(var(--chart-2))" });
-        }
-        if (etfValue > 0) {
-          assetAllocation.push({ name: "ETFs", value: etfValue, color: "hsl(var(--chart-3))" });
+        // Helper function to assign colors based on asset category
+        function getAssetColor(category: string): string {
+          const colorMap: { [key: string]: string } = {
+            'Cash & Bank': 'hsl(var(--chart-1))',
+            'EPF': 'hsl(var(--chart-2))',
+            'Indian Stocks': 'hsl(var(--chart-3))',
+            'Mutual Funds': 'hsl(var(--chart-4))',
+            'US Stocks': 'hsl(var(--chart-5))',
+            'ETFs': 'hsl(var(--chart-6))'
+          };
+          return colorMap[category] || 'hsl(var(--chart-1))';
         }
         
         // Create SIP data (mock data for now since it's not in the API response)
-        const sips = [
-          { name: "Nifty 50 Index Fund", amount: 5000, nextDueDate: "2024-08-05" },
-          { name: "Parag Parikh Flexi Cap", amount: 3000, nextDueDate: "2024-08-10" },
-        ];
+        // const sips = [
+        //   { name: "Nifty 50 Index Fund", amount: 5000, nextDueDate: "2024-08-05" },
+        //   { name: "Parag Parikh Flexi Cap", amount: 3000, nextDueDate: "2024-08-10" },
+        // ];
+        
+        // Calculate portfolio summary values from actual holdings data
+        const stockValue = assetAllocation
+          .filter((item: any) => item.name === 'Indian Stocks')
+          .reduce((sum: number, item: any) => sum + item.value, 0);
+        
+        const mfValue = assetAllocation
+          .filter((item: any) => item.name === 'Mutual Funds')
+          .reduce((sum: number, item: any) => sum + item.value, 0);
+        
+        const etfValue = etfHoldings.reduce((sum: number, etf: any) => sum + etf.currentValue, 0);
+        
+        // Use actual counts from the API data
+        const stockCount = get_processed_investment_portfolio?.stock_holdings?.length || 0;
+        const mfCount = get_processed_investment_portfolio?.mutual_fund_holdings?.length || 0;
         
         setPortfolioData({
           totalInvestment: totalInvested,
           currentValue: currentValue, // Use the API's total_portfolio_value from portfolio diversification
           overallGain: overallGain,
           overallGainPercentage: overallGainPercentage,
-          sips: sips,
           assetAllocation: assetAllocation,
           holdings: [], // We'll use separate stockHoldings, mutualFundHoldings, and etfHoldings
-          stockHoldings: investmentPortfolio?.stock_holdings || [],
-          mutualFundHoldings: investmentPortfolio?.mutual_fund_holdings || [],
+          stockHoldings: get_processed_investment_portfolio?.stock_holdings || [],
+          mutualFundHoldings: get_processed_investment_portfolio?.mutual_fund_holdings || [],
           etfHoldings: etfHoldings,
           portfolioSummary: {
             total_stock_value: stockValue,
             total_mutual_fund_current: mfValue,
             total_portfolio_value: currentValue,
-            stock_count: portfolioDiversification?.asset_allocation?.stock_count || 0,
-            mutual_fund_count: portfolioDiversification?.asset_allocation?.mutual_fund_count || 0,
+            stock_count: stockCount,
+            mutual_fund_count: mfCount,
             formatted_total_portfolio: `₹${currentValue.toLocaleString()}`,
             formatted_stock_value: `₹${stockValue.toLocaleString()}`,
             formatted_mf_current: `₹${mfValue.toLocaleString()}`
@@ -223,7 +275,7 @@ export default function PortfolioPage() {
     fetchPortfolioData();
   }, [currentView]);
 
-  const totalSipAmount = portfolioData.sips.reduce((acc, sip) => acc + sip.amount, 0);
+  // const totalSipAmount = portfolioData.sips.reduce((acc, sip) => acc + sip.amount, 0);
 
   if (error) {
     return <div className="text-red-500 text-center">Error: {error}</div>
@@ -232,6 +284,7 @@ export default function PortfolioPage() {
   if (loading) {
     return (
       <div className="grid gap-6">
+        {/* Portfolio Overview Cards Skeleton */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Card>
             <CardHeader>
@@ -246,25 +299,71 @@ export default function PortfolioPage() {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle className="font-headline">SIP Tracker</CardTitle>
-              <CardDescription>Your upcoming systematic investments.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {[1, 2].map((i) => (
-                <div key={i}>
-                  <Skeleton className="h-4 w-full mb-1" />
-                  <Skeleton className="h-3 w-20" />
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
               <CardTitle className="font-headline">Asset Allocation</CardTitle>
               <CardDescription>How your investments are diversified.</CardDescription>
             </CardHeader>
             <CardContent>
               <Skeleton className="h-48 w-full" />
+            </CardContent>
+          </Card>
+        </div>
+        
+        {/* Portfolio Summary Skeleton */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-headline">Portfolio Summary</CardTitle>
+            <CardDescription>Detailed breakdown of your investment portfolio.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="space-y-2">
+                  <Skeleton className="h-4 w-24" />
+                  <Skeleton className="h-8 w-20" />
+                  <Skeleton className="h-3 w-16" />
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+        
+        {/* Holdings Tables Skeleton */}
+        <div className="grid gap-6">
+          {/* Stock Holdings Skeleton */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="font-headline">Stock Holdings</CardTitle>
+              <CardDescription>Your current stock portfolio.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="flex justify-between items-center">
+                    <Skeleton className="h-4 w-32" />
+                    <Skeleton className="h-4 w-20" />
+                    <Skeleton className="h-4 w-24" />
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+          
+          {/* Mutual Fund Holdings Skeleton */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="font-headline">Mutual Fund Holdings</CardTitle>
+              <CardDescription>Your mutual fund investments.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="flex justify-between items-center">
+                    <Skeleton className="h-4 w-32" />
+                    <Skeleton className="h-4 w-20" />
+                    <Skeleton className="h-4 w-24" />
+                  </div>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -274,6 +373,7 @@ export default function PortfolioPage() {
 
   return (
     <div className="grid gap-6">
+      {/* Portfolio Overview Cards */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader>
@@ -296,56 +396,31 @@ export default function PortfolioPage() {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle className="font-headline flex items-center gap-2">
-              <PiggyBank className="text-accent" /> SIP Tracker
-            </CardTitle>
-            <CardDescription>Your upcoming systematic investments.</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            {portfolioData.sips.map((sip) => (
-              <div key={sip.name} className="text-sm">
-                <div className="flex justify-between">
-                  <span className="font-medium">{sip.name}</span>
-                  <span className="font-semibold">₹{sip.amount.toLocaleString()}</span>
-                </div>
-                <p className="text-xs text-muted-foreground">Next due: {sip.nextDueDate}</p>
-              </div>
-            ))}
-             <div className="border-t pt-3 mt-3">
-                <div className="flex justify-between font-bold">
-                    <span>Total Monthly SIP</span>
-                    <span>₹{totalSipAmount.toLocaleString()}</span>
-                </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
             <CardTitle className="font-headline">Asset Allocation</CardTitle>
             <CardDescription>How your investments are diversified.</CardDescription>
           </CardHeader>
           <CardContent>
             {portfolioData.assetAllocation.length > 0 ? (
-              <ChartContainer config={chartConfig} className="h-48 w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Tooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-                    <Pie
-                      data={portfolioData.assetAllocation}
-                      dataKey="value"
-                      nameKey="name"
-                      cx="50%"
-                      cy="50%"
-                      outerRadius={80}
-                      strokeWidth={5}
-                    >
-                      {portfolioData.assetAllocation.map((entry) => (
-                        <Cell key={`cell-${entry.name}`} fill={entry.color} />
-                      ))}
-                    </Pie>
-                  </PieChart>
-                </ResponsiveContainer>
-              </ChartContainer>
+            <ChartContainer config={chartConfig} className="h-48 w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Tooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
+                  <Pie
+                    data={portfolioData.assetAllocation}
+                    dataKey="value"
+                    nameKey="name"
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={80}
+                    strokeWidth={5}
+                  >
+                    {portfolioData.assetAllocation.map((entry) => (
+                      <Cell key={`cell-${entry.name}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            </ChartContainer>
             ) : (
               <div className="text-center text-muted-foreground py-8">
                 No asset allocation data available
@@ -386,56 +461,62 @@ export default function PortfolioPage() {
         </CardContent>
       </Card>
 
-      {portfolioData.stockHoldings.length > 0 && (
-        <Card>
+      {/* Holdings Tables Section */}
+      <div className="grid gap-6">
+        {/* Stock Holdings Table */}
+        {portfolioData.stockHoldings.length > 0 && (
+          <Card>
             <CardHeader>
-                <CardTitle className="font-headline">Stocks</CardTitle>
-                <CardDescription>Your equity holdings.</CardDescription>
+              <CardTitle className="font-headline">Stock Holdings</CardTitle>
+              <CardDescription>Your current stock portfolio from get_processed_investment_portfolio.</CardDescription>
             </CardHeader>
             <CardContent>
-                <HoldingsTable holdings={portfolioData.stockHoldings} type="Stock" />
+              <StockHoldingsTable holdings={portfolioData.stockHoldings} />
             </CardContent>
-        </Card>
-      )}
-
-    {portfolioData.mutualFundHoldings.length > 0 && (
-        <Card>
+          </Card>
+        )}
+        
+        {/* Mutual Fund Holdings Table */}
+        {portfolioData.mutualFundHoldings.length > 0 && (
+          <Card>
             <CardHeader>
-                <CardTitle className="font-headline">Mutual Funds</CardTitle>
-                <CardDescription>Your mutual fund investments.</CardDescription>
+              <CardTitle className="font-headline">Mutual Fund Holdings</CardTitle>
+              <CardDescription>Your mutual fund investments from get_processed_investment_portfolio.</CardDescription>
             </CardHeader>
             <CardContent>
-                <HoldingsTable holdings={portfolioData.mutualFundHoldings} type="Mutual Fund" />
+              <HoldingsTable holdings={portfolioData.mutualFundHoldings} type="Mutual Fund" />
             </CardContent>
-        </Card>
-    )}
-
-    {portfolioData.etfHoldings.length > 0 && (
-        <Card>
+          </Card>
+        )}
+        
+        {/* ETF Holdings Table */}
+        {portfolioData.etfHoldings.length > 0 && (
+          <Card>
             <CardHeader>
-                <CardTitle className="font-headline">ETFs</CardTitle>
-                <CardDescription>Your ETF investments.</CardDescription>
+              <CardTitle className="font-headline">ETF Holdings</CardTitle>
+              <CardDescription>Your exchange-traded funds.</CardDescription>
             </CardHeader>
             <CardContent>
-                <HoldingsTable holdings={portfolioData.etfHoldings} type="ETF" />
+              <HoldingsTable holdings={portfolioData.etfHoldings} type="ETF" />
             </CardContent>
-        </Card>
-    )}
+          </Card>
+        )}
 
-    {portfolioData.stockHoldings.length === 0 && portfolioData.mutualFundHoldings.length === 0 && portfolioData.etfHoldings.length === 0 && (
-        <Card>
+        {/* No Holdings Message */}
+        {portfolioData.stockHoldings.length === 0 && portfolioData.mutualFundHoldings.length === 0 && portfolioData.etfHoldings.length === 0 && (
+          <Card>
             <CardHeader>
-                <CardTitle className="font-headline">No Holdings Found</CardTitle>
-                <CardDescription>No stock, mutual fund, or ETF holdings available.</CardDescription>
+              <CardTitle className="font-headline">No Holdings Found</CardTitle>
+              <CardDescription>No stock, mutual fund, or ETF holdings available.</CardDescription>
             </CardHeader>
             <CardContent>
-                <div className="text-center text-muted-foreground py-8">
-                    No investment holdings found in your portfolio.
-                </div>
+              <div className="text-center text-muted-foreground py-8">
+                No investment holdings found in your portfolio.
+              </div>
             </CardContent>
-        </Card>
-    )}
-
+          </Card>
+        )}
+      </div>
     </div>
   );
 }

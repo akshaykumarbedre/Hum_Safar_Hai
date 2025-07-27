@@ -283,7 +283,7 @@ async def list_available_users():
         return {"error": f"Could not list users: {str(e)}"}
 
 
-@app.get("/goals")
+@tools_router.get("/goals")
 async def get_all_goals():
     """Get all investment goals for hardcoded users."""
     try:
@@ -291,8 +291,10 @@ async def get_all_goals():
         user_ids = ["1212121212", "2222222222"]
         results = {}
 
-        agent = GoalInvestmentStrategyAgent(user_ids[0], user_ids[1])
-        results=agent.get_all_goals()
+        import json
+        with open("./FI money dummy data/combined_goals.json",'r') as file:
+            results = json.load(file)
+        
         return results
 
     except Exception as e:

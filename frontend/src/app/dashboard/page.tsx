@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useSearchParams } from "next/navigation";
@@ -14,6 +13,8 @@ import {
   TableBody,
   TableCell,
   TableRow,
+  TableHeader,
+  TableHead,
 } from "@/components/ui/table";
 import { Progress } from "@/components/ui/progress";
 import {
@@ -29,7 +30,7 @@ import {
 import { ChartTooltipContent, ChartContainer } from "@/components/ui/chart";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ClientOnly } from "@/components/client-only";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 
 const chartConfig = {
@@ -80,14 +81,14 @@ const chartConfig = {
 //   ],
 //   transactions: [
 //     { id: "1", description: "Trader Joe's", amount: -78.54, date: "2024-07-22" },
-//     { id: "2", description: "Salary Deposit (Alex)", amount: 3500.0, date: "2024-07-21" },
+//     { id: "2", description: "Salary Deposit (Rohan)", amount: 3500.0, date: "2024-07-21" },
 //     { id: "3", description: "Amazon.com", amount: -124.99, date: "2024-07-20" },
 //     { id: "4", description: "PG&E Utility", amount: -150.23, date: "2024-07-19" },
-//     { id: "5", description: "Salary Deposit (Sarah)", amount: 3200.0, date: "2024-07-18" },
+//     { id: "5", description: "Salary Deposit (Priya)", amount: 3200.0, date: "2024-07-18" },
 //   ]
 // };
 
-// const alexData = {
+// const RohanData = {
 //   netWorth: 65200,
 //   netWorthData: [
 //     { date: "Jan", value: 40000 }, { date: "Feb", value: 42000 },
@@ -110,7 +111,7 @@ const chartConfig = {
 //   ]
 // };
 
-// const sarahData = {
+// const PriyaData = {
 //   netWorth: 55330,
 //   netWorthData: [
 //     { date: "Jan", value: 40000 }, { date: "Feb", value: 43000 },
@@ -135,8 +136,8 @@ const chartConfig = {
 
 // const allData = {
 //     couple: coupleData,
-//     alex: alexData,
-//     sarah: sarahData,
+//     Rohan: RohanData,
+//     Priya: PriyaData,
 // };
 
 const initialData = {
@@ -147,82 +148,107 @@ const initialData = {
   transactions: [] as { id: string; description: string; amount: number; date: string }[],
 };
 
-const allData = {
-  couple: {
-    netWorth: 120530,
-    netWorthData: [
-      { date: "Jan", value: 80000 }, { date: "Feb", value: 85000 },
-      { date: "Mar", value: 95000 }, { date: "Apr", value: 105000 },
-      { date: "May", value: 115000 }, { date: "Jun", value: 120530 },
-    ],
-    goals: [
-      { name: '🏡 House Down Payment', progress: 60 },
-      { name: '🏖️ Dream Vacation', progress: 35 },
-      { name: '🚗 New Car Fund', progress: 80 },
-    ],
-    spendingData: [
-      { name: "Groceries", value: 450.75, fill: "var(--color-groceries)" },
-      { name: "Utilities", value: 220.5, fill: "var(--color-utilities)" },
-      { name: "Dining", value: 350.0, fill: "var(--color-dining)" },
-      { name: "Shopping", value: 500.25, fill: "var(--color-shopping)" },
-      { name: "Transport", value: 150.0, fill: "var(--color-transport)" },
-    ],
-    transactions: [
-      { id: "1", description: "Trader Joe's", amount: -78.54, date: "2024-07-22" },
-      { id: "2", description: "Salary Deposit (Alex)", amount: 3500.0, date: "2024-07-21" },
-      { id: "3", description: "Amazon.com", amount: -124.99, date: "2024-07-20" },
-      { id: "4", description: "PG&E Utility", amount: -150.23, date: "2024-07-19" },
-      { id: "5", description: "Salary Deposit (Sarah)", amount: 3200.0, date: "2024-07-18" },
-    ]
-  },
-  "5555555555": {
-    netWorth: 65200,
-    netWorthData: [
-      { date: "Jan", value: 40000 }, { date: "Feb", value: 42000 },
-      { date: "Mar", value: 48000 }, { date: "Apr", value: 53000 },
-      { date: "May", value: 60000 }, { date: "Jun", value: 65200 },
-    ],
-    goals: [
-      { name: '👨‍💻 New Laptop', progress: 75 },
-      { name: '📷 Photography Gear', progress: 50 },
-    ],
-    spendingData: [
-      { name: "Gadgets", value: 300, fill: "var(--color-shopping)" },
-      { name: "Dining", value: 200, fill: "var(--color-dining)" },
-      { name: "Transport", value: 100, fill: "var(--color-transport)" },
-    ],
-    transactions: [
-      { id: "1", description: "Best Buy", amount: -250.00, date: "2024-07-22" },
-      { id: "2", description: "Salary Deposit", amount: 3500.0, date: "2024-07-21" },
-      { id: "3", description: "Steakhouse Dinner", amount: -110.00, date: "2024-07-18" },
-    ]
-  },
-  "6666666666": {
-    netWorth: 55330,
-    netWorthData: [
-      { date: "Jan", value: 40000 }, { date: "Feb", value: 43000 },
-      { date: "Mar", value: 47000 }, { date: "Apr", value: 52000 },
-      { date: "May", value: 55000 }, { date: "Jun", value: 55330 },
-    ],
-    goals: [
-      { name: '🎨 Art Supplies', progress: 90 },
-      { name: '🧘‍♀️ Yoga Retreat', progress: 40 },
-    ],
-    spendingData: [
-      { name: "Shopping", value: 250.25, fill: "var(--color-shopping)" },
-      { name: "Groceries", value: 250.75, fill: "var(--color-groceries)" },
-      { name: "Hobbies", value: 150, fill: "var(--color-utilities)" },
-    ],
-    transactions: [
-      { id: "1", description: "Art Store", amount: -95.50, date: "2024-07-22" },
-      { id: "2", description: "Salary Deposit", amount: 3200.0, date: "2024-07-18" },
-      { id: "3", description: "Whole Foods", amount: -130.45, date: "2024-07-17" },
-    ]
-  }
-};
+// const allData = {
+//   couple: {
+//     netWorth: 120530,
+//     netWorthData: [
+//       { date: "Jan", value: 80000 }, { date: "Feb", value: 85000 },
+//       { date: "Mar", value: 95000 }, { date: "Apr", value: 105000 },
+//       { date: "May", value: 115000 }, { date: "Jun", value: 120530 },
+//     ],
+//     goals: [
+//       { name: '🏡 House Down Payment', progress: 60 },
+//       { name: '🏖️ Dream Vacation', progress: 35 },
+//       { name: '🚗 New Car Fund', progress: 80 },
+//     ],
+//     spendingData: [
+//       { name: "Groceries", value: 450.75, fill: "var(--color-groceries)" },
+//       { name: "Utilities", value: 220.5, fill: "var(--color-utilities)" },
+//       { name: "Dining", value: 350.0, fill: "var(--color-dining)" },
+//       { name: "Shopping", value: 500.25, fill: "var(--color-shopping)" },
+//       { name: "Transport", value: 150.0, fill: "var(--color-transport)" },
+//     ],
+//     transactions: [
+//       { id: "1", description: "Trader Joe's", amount: -78.54, date: "2024-07-22" },
+//       { id: "2", description: "Salary Deposit (Rohan)", amount: 3500.0, date: "2024-07-21" },
+//       { id: "3", description: "Amazon.com", amount: -124.99, date: "2024-07-20" },
+//       { id: "4", description: "PG&E Utility", amount: -150.23, date: "2024-07-19" },
+//       { id: "5", description: "Salary Deposit (Priya)", amount: 3200.0, date: "2024-07-18" },
+//     ]
+//   },
+//   "5555555555": {
+//     netWorth: 65200,
+//     netWorthData: [
+//       { date: "Jan", value: 40000 }, { date: "Feb", value: 42000 },
+//       { date: "Mar", value: 48000 }, { date: "Apr", value: 53000 },
+//       { date: "May", value: 60000 }, { date: "Jun", value: 65200 },
+//     ],
+//     goals: [
+//       { name: '👨‍💻 New Laptop', progress: 75 },
+//       { name: '📷 Photography Gear', progress: 50 },
+//     ],
+//     spendingData: [
+//       { name: "Gadgets", value: 300, fill: "var(--color-shopping)" },
+//       { name: "Dining", value: 200, fill: "var(--color-dining)" },
+//       { name: "Transport", value: 100, fill: "var(--color-transport)" },
+//     ],
+//     transactions: [
+//       { id: "1", description: "Best Buy", amount: -250.00, date: "2024-07-22" },
+//       { id: "2", description: "Salary Deposit", amount: 3500.0, date: "2024-07-21" },
+//       { id: "3", description: "Steakhouse Dinner", amount: -110.00, date: "2024-07-18" },
+//     ]
+//   },
+//   "6666666666": {
+//     netWorth: 55330,
+//     netWorthData: [
+//       { date: "Jan", value: 40000 }, { date: "Feb", value: 43000 },
+//       { date: "Mar", value: 47000 }, { date: "Apr", value: 52000 },
+//       { date: "May", value: 55000 }, { date: "Jun", value: 55330 },
+//     ],
+//     goals: [
+//       { name: '🎨 Art Supplies', progress: 90 },
+//       { name: '🧘‍♀️ Yoga Retreat', progress: 40 },
+//     ],
+//     spendingData: [
+//       { name: "Shopping", value: 250.25, fill: "var(--color-shopping)" },
+//       { name: "Groceries", value: 250.75, fill: "var(--color-groceries)" },
+//       { name: "Hobbies", value: 150, fill: "var(--color-utilities)" },
+//     ],
+//     transactions: [
+//       { id: "1", description: "Art Store", amount: -95.50, date: "2024-07-22" },
+//       { id: "2", description: "Salary Deposit", amount: 3200.0, date: "2024-07-18" },
+//       { id: "3", description: "Whole Foods", amount: -130.45, date: "2024-07-17" },
+//     ]
+//   }
+// };
 
-type View = "couple" | "5555555555" | "6666666666";
+type View = "couple" | "1212121212" | "2222222222";
 
+// Add a dedicated StockHoldingsTable component
+const StockHoldingsTable = ({ holdings }: { holdings: any[] }) => (
+  <Table>
+    <TableHeader>
+      <TableRow>
+        <TableHead>Name</TableHead>
+        <TableHead>ISIN</TableHead>
+        <TableHead>Quantity</TableHead>
+        <TableHead className="text-right">Current Price</TableHead>
+        <TableHead className="text-right">Current Value</TableHead>
+      </TableRow>
+    </TableHeader>
+    <TableBody>
+      {holdings.map((holding, idx) => (
+        <TableRow key={idx}>
+          <TableCell className="font-medium">{holding.issuer_name}</TableCell>
+          <TableCell>{holding.isin}</TableCell>
+          <TableCell>{holding.units}</TableCell>
+          <TableCell className="text-right">{holding.formatted_price}</TableCell>
+          <TableCell className="text-right font-semibold">{holding.formatted_value}</TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
+  </Table>
+);
 
 export default function DashboardPage() {
   const searchParams = useSearchParams();
@@ -231,14 +257,16 @@ export default function DashboardPage() {
   const [data, setData] = useState(initialData);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [stockHoldings, setStockHoldings] = useState<any[]>([]);
+  const [anomalies, setAnomalies] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       setError(null);
       try {
-        // const user_id = currentView;
-        const user_id = '5555555555';
+        // Use currentView as user_id
+        const user_id = currentView;
 
         // Fetch expense data (includes transactions and spending summary)
         const expenseResponse = await fetch(`http://localhost:8000/tools/expense/${user_id}`);
@@ -328,12 +356,24 @@ export default function DashboardPage() {
           // }
         }));
 
+        setStockHoldings(netWorthResult.get_processed_investment_portfolio?.stock_holdings || []);
+        // Fetch anomalies from financial audit endpoint
+        const auditResponse = await fetch(`http://localhost:8000/tools/financial_audit/${user_id}`);
+        if (auditResponse.ok) {
+          const auditResult = await auditResponse.json();
+          setAnomalies(auditResult.run_full_financial_audit?.detected_anomalies || []);
+        } else {
+          setAnomalies([]);
+        }
+
         // Using mock data for now
         // setData(allData[currentView]);
 
       } catch (err) {
         setError(err instanceof Error ? err.message : "An unknown error occurred");
         setData(initialData);
+        setStockHoldings([]);
+        setAnomalies([]);
       } finally {
         setLoading(false);
       }
@@ -430,146 +470,188 @@ export default function DashboardPage() {
   }
 
   return (
-    <ClientOnly>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle className="font-headline">Net Worth</CardTitle>
-            <CardDescription>
-              Your financial snapshot over the last 6 months.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-2">
-            <p className="text-4xl font-bold tracking-tighter">
-              ${(data.netWorth || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-            </p>
-            <div className="h-48">
+    <Tabs defaultValue="dashboard" className="w-full">
+      <TabsList className="mb-4">
+        <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
+        <TabsTrigger value="anomalies">Anomalies</TabsTrigger>
+      </TabsList>
+      <TabsContent value="dashboard">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <Card className="lg:col-span-2">
+            <CardHeader>
+              <CardTitle className="font-headline">Net Worth</CardTitle>
+              <CardDescription>
+                Your financial snapshot over the last 6 months.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-2">
+              <p className="text-4xl font-bold tracking-tighter">
+                ₹{(data.netWorth || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </p>
+              <div className="h-48">
+                <ChartContainer config={chartConfig} className="h-full w-full">
+                  <AreaChart
+                    data={data.netWorthData}
+                    margin={{ top: 5, right: 10, left: -20, bottom: 0 }}
+                    accessibilityLayer
+                  >
+                    <defs>
+                      <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                        <stop
+                          offset="5%"
+                          stopColor="var(--color-value)"
+                          stopOpacity={0.8}
+                        />
+                        <stop
+                          offset="95%"
+                          stopColor="var(--color-value)"
+                          stopOpacity={0}
+                        />
+                      </linearGradient>
+                    </defs>
+                    <YAxis
+                      tickLine={false}
+                      axisLine={false}
+                      tickFormatter={(value) => `${Number(value) / 1000}k`}
+                    />
+                    <Tooltip
+                      cursor={false}
+                      content={<ChartTooltipContent indicator="dot" />}
+                    />
+                    <Area
+                      type="monotone"
+                      dataKey="value"
+                      stroke="var(--color-value)"
+                      fillOpacity={1}
+                      fill="url(#colorValue)"
+                    />
+                  </AreaChart>
+                </ChartContainer>
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="font-headline">Goal Progress</CardTitle>
+              <CardDescription>
+                How you're tracking towards your goals.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {data.goals.map(goal => (
+                <div key={goal.name}>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-sm font-medium">{goal.name}</span>
+                    <span className="text-sm text-muted-foreground">{goal.progress}%</span>
+                  </div>
+                  <Progress value={goal.progress} />
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+          <Card className="lg:col-span-2">
+            <CardHeader>
+              <CardTitle className="font-headline">Spending by Category</CardTitle>
+              <CardDescription>
+                Your spending breakdown for this month.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="h-80">
               <ChartContainer config={chartConfig} className="h-full w-full">
-                <AreaChart
-                  data={data.netWorthData}
-                  margin={{ top: 5, right: 10, left: -20, bottom: 0 }}
-                  accessibilityLayer
+                <BarChart
+                  data={data.spendingData}
+                  layout="vertical"
+                  margin={{ left: 10, right: 10, top: 20, bottom: 20 }}
                 >
-                  <defs>
-                    <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                      <stop
-                        offset="5%"
-                        stopColor="var(--color-value)"
-                        stopOpacity={0.8}
-                      />
-                      <stop
-                        offset="95%"
-                        stopColor="var(--color-value)"
-                        stopOpacity={0}
-                      />
-                    </linearGradient>
-                  </defs>
+                  <XAxis type="number" hide />
                   <YAxis
+                    dataKey="name"
+                    type="category"
                     tickLine={false}
                     axisLine={false}
-                    tickFormatter={(value) => `$${Number(value) / 1000}k`}
+                    tickMargin={15}
+                    width={100}
                   />
                   <Tooltip
-                    cursor={false}
-                    content={<ChartTooltipContent indicator="dot" />}
+                    cursor={{ fill: "hsl(var(--muted))" }}
+                    content={<ChartTooltipContent />}
                   />
-                  <Area
-                    type="monotone"
-                    dataKey="value"
-                    stroke="var(--color-value)"
-                    fillOpacity={1}
-                    fill="url(#colorValue)"
-                  />
-                </AreaChart>
+                  <Bar dataKey="value" radius={[0, 4, 4, 0]} />
+                </BarChart>
               </ChartContainer>
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle className="font-headline">Goal Progress</CardTitle>
-            <CardDescription>
-              How you're tracking towards your goals.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {data.goals.map(goal => (
-              <div key={goal.name}>
-                <div className="flex justify-between mb-1">
-                  <span className="text-sm font-medium">{goal.name}</span>
-                  <span className="text-sm text-muted-foreground">{goal.progress}%</span>
-                </div>
-                <Progress value={goal.progress} />
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-        <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle className="font-headline">Spending by Category</CardTitle>
-            <CardDescription>
-              Your spending breakdown for this month.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="h-80">
-            <ChartContainer config={chartConfig} className="h-full w-full">
-              <BarChart
-                data={data.spendingData}
-                layout="vertical"
-                margin={{ left: 10, right: 10, top: 20, bottom: 20 }}
-              >
-                <XAxis type="number" hide />
-                <YAxis
-                  dataKey="name"
-                  type="category"
-                  tickLine={false}
-                  axisLine={false}
-                  tickMargin={15}
-                  width={100}
-                />
-                <Tooltip
-                  cursor={{ fill: "hsl(var(--muted))" }}
-                  content={<ChartTooltipContent />}
-                />
-                <Bar dataKey="value" radius={[0, 4, 4, 0]} />
-              </BarChart>
-            </ChartContainer>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle className="font-headline">Recent Transactions</CardTitle>
-            <CardDescription>Your latest financial activities.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Table>
-              <TableBody>
-                {data.transactions.map((transaction) => (
-                  <TableRow key={transaction.id}>
-                    <TableCell>
-                      <div className="font-medium">{transaction.description}</div>
-                      <div className="text-xs text-muted-foreground">
-                        {transaction.date}
-                      </div>
-                    </TableCell>
-                    <TableCell
-                      className={`text-right font-semibold ${
-                        transaction.amount > 0
-                          ? "text-green-600"
-                          : "text-foreground"
-                      }`}
-                    >
-                      {transaction.amount < 0
-                        ? `-$${Math.abs(transaction.amount).toFixed(2)}`
-                        : `+$${transaction.amount.toFixed(2)}`}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
-      </div>
-    </ClientOnly>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="font-headline">Recent Transactions</CardTitle>
+              <CardDescription>Your latest financial activities.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Table>
+                <TableBody>
+                  {data.transactions.map((transaction) => (
+                    <TableRow key={transaction.id}>
+                      <TableCell>
+                        <div className="font-medium">{transaction.description}</div>
+                        <div className="text-xs text-muted-foreground">
+                          {transaction.date}
+                        </div>
+                      </TableCell>
+                      <TableCell
+                        className={`text-right font-semibold ${
+                          transaction.amount > 0
+                            ? "text-green-600"
+                            : "text-foreground"
+                        }`}
+                      >
+                        {transaction.amount < 0
+                          ? `-₹${Math.abs(transaction.amount).toFixed(2)}`
+                          : `+₹${transaction.amount.toFixed(2)}`}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+          {stockHoldings.length > 0 && (
+            <Card className="lg:col-span-3">
+              <CardHeader>
+                <CardTitle className="font-headline">Stock Holdings</CardTitle>
+                <CardDescription>Your current stock portfolio from get_processed_investment_portfolio.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <StockHoldingsTable holdings={stockHoldings} />
+              </CardContent>
+            </Card>
+          )}
+        </div>
+      </TabsContent>
+      <TabsContent value="anomalies">
+        <div className="grid gap-6">
+          {anomalies.length === 0 && (
+            <div className="text-muted-foreground text-center py-8">No anomalies detected.</div>
+          )}
+          {anomalies.map((anomaly: any, idx: number) => (
+            <Card key={idx}>
+              <CardHeader>
+                <CardTitle className="font-headline">{anomaly.anomaly_title}</CardTitle>
+                <CardDescription>{anomaly.anomaly_code}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-2 text-sm text-muted-foreground">{anomaly.description}</div>
+                <div className="mb-2"><span className="font-semibold">Recommendation:</span> {anomaly.recommendation}</div>
+                {anomaly.details && (
+                  <details className="bg-muted rounded p-2 mt-2">
+                    <summary className="cursor-pointer font-medium">Details</summary>
+                    <pre className="text-xs mt-2 whitespace-pre-wrap">{JSON.stringify(anomaly.details, null, 2)}</pre>
+                  </details>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </TabsContent>
+    </Tabs>
   );
 }

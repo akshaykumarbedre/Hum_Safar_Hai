@@ -9,6 +9,7 @@ import {
   LineChart,
   Settings,
   MessageCircle,
+  AlertTriangle,
 } from "lucide-react";
 
 import {
@@ -30,6 +31,7 @@ const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/dashboard/goals", icon: Target, label: "Goals" },
   { href: "/dashboard/portfolio", icon: LineChart, label: "Portfolio" },
+  { href: "/dashboard/anomalies", icon: AlertTriangle, label: "Anomalies" },
   { href: "/dashboard/chat", icon: MessageCircle, label: "Talk with your money" },
 ];
 

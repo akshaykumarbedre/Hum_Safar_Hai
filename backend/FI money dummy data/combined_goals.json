@@ -84,34 +84,6 @@
     "female_monthly_contribution": 1111.0,
     "total_monthly_contribution": 1641111.0,
     "pledged": false
-  },
-  {
-    "name": "Car Purchase",
-    "target_amount": 2000000,
-    "male_assets": [
-      {
-        "asset_name": "ICICI Prudential Bluechip Fund - Direct - Growth",
-        "amount": 14000.0
-      },
-      {
-        "asset_name": "Axis Small Cap Fund - Direct Plan - Growth",
-        "amount": 6000.0
-      }
-    ],
-    "female_assets": [
-      {
-        "asset_name": "ICICI Prudential Bluechip Fund - Direct - Growth",
-        "amount": 14000.0
-      },
-      {
-        "asset_name": "Axis Small Cap Fund - Direct Plan - Growth",
-        "amount": 6000.0
-      }
-    ],
-    "current_corpus": 0,
-    "male_monthly_contribution": 20000.0,
-    "female_monthly_contribution": 20000.0,
-    "total_monthly_contribution": 40000.0,
-    "pledged": true
   }
+  
 ]

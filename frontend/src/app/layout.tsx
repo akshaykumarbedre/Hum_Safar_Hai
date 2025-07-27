@@ -10,7 +10,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "CoupleFi",
+  title: "Hum-Safar",
   description: "A personal finance assistant for couples.",
 };
 
@@ -35,7 +35,6 @@ export default function RootLayout({
       </head>
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} font-body antialiased`}
-        suppressHydrationWarning
       >
         {children}
         <Toaster />

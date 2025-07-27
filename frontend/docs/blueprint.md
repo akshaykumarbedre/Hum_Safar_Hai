@@ -1,4 +1,4 @@
-# **App Name**: CoupleFi
+# **App Name**: Hum-Safar
 
 ## Core Features:
 

@@ -21,7 +21,7 @@ export function DashboardHeader({ title }: DashboardHeaderProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const currentView = searchParams.get("view") || "couple";
+  const currentView = searchParams.get("view") || "1212121212";
 
   const handleViewChange = (newView: string) => {
     const params = new URLSearchParams(searchParams);
@@ -46,24 +46,25 @@ export function DashboardHeader({ title }: DashboardHeaderProps) {
                 <SelectValue placeholder="Select a view" />
              </SelectTrigger>
              <SelectContent>
-                 <SelectItem value="couple">
+                 
+                 <SelectItem value="1212121212">
+                    <div className="flex items-center gap-2">
+                        <User className="h-4 w-4" />
+                        <span>Rohan's View</span>
+                    </div>
+                 </SelectItem>
+                 <SelectItem value="2222222222">
+                    <div className="flex items-center gap-2">
+                        <User className="h-4 w-4" />
+                        <span>Priya's View</span>
+                    </div>
+                </SelectItem>
+                <SelectItem value="couple">
                     <div className="flex items-center gap-2">
                         <Users className="h-4 w-4" />
                         <span>Couple View</span>
                     </div>
                  </SelectItem>
-                 <SelectItem value="alex">
-                    <div className="flex items-center gap-2">
-                        <User className="h-4 w-4" />
-                        <span>Alex's View</span>
-                    </div>
-                 </SelectItem>
-                 <SelectItem value="sarah">
-                    <div className="flex items-center gap-2">
-                        <User className="h-4 w-4" />
-                        <span>Sarah's View</span>
-                    </div>
-                </SelectItem>
              </SelectContent>
            </Select>
         )}

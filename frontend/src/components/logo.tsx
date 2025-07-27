@@ -7,7 +7,7 @@ export function Logo() {
         <PiggyBank className="h-6 w-6 text-accent" />
       </div>
       <h1 className="font-headline text-2xl font-bold text-foreground">
-        CoupleFi
+        Hum-Safar
       </h1>
     </div>
   );

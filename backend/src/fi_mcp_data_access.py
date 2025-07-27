@@ -15,6 +15,7 @@ import json
 import os
 from typing import Dict, List, Optional, Union, Any
 from pathlib import Path
+import requests
 
 
 class FIMCPDataAccess:
@@ -68,12 +69,12 @@ class FIMCPDataAccess:
             "Mcp-Session-Id": "mcp-session-594e48ea-fea1-40ef-8c52-7552dd9272af"  # Can be anything if your auth is bypassed
         }
 
-        try:
-            response = requests.post("http://localhost:8080/mcp/stream", json=payload, headers=headers, timeout=10)
-            response.raise_for_status()
-            return response.json()
-        except Exception as e:
-            print(f"❌ MCP call failed for {tool_name}: {e}. Falling back to file.")
+        # try:
+        #     response = requests.post("http://localhost:8080/mcp/stream", json=payload, headers=headers, timeout=10)
+        #     response.raise_for_status()
+        #     return response.json()
+        # except Exception as e:
+        #     print(f"❌ MCP call failed for : {e}. Falling back to file.")
 
         # Fallback to local file
         try:

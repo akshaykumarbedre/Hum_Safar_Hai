@@ -1,4 +1,3 @@
-
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -21,7 +20,7 @@ export function DashboardHeader({ title }: DashboardHeaderProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const currentView = searchParams.get("view") || "1212121212";
+  const currentView = searchParams.get("view") || "couple"; // Changed default to "couple"
 
   const handleViewChange = (newView: string) => {
     const params = new URLSearchParams(searchParams);

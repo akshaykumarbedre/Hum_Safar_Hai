@@ -5,8 +5,9 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Bot, User, CornerDownLeft, Loader } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ReactMarkdown from 'react-markdown';
 
 type Message = {
@@ -14,27 +15,28 @@ type Message = {
   content: string;
 };
 
-const mockFinancialData = JSON.stringify({
-    netWorth: 120530,
-    monthlySavings: 2500,
-    goals: [
-        { name: 'House Down Payment', progress: 0.60 },
-        { name: 'Dream Vacation to Japan', progress: 0.35 },
-    ],
-    spending: [
-        { category: "Groceries", amount: 450.75 },
-        { category: "Utilities", amount: 220.50 },
-        { category: "Dining Out", amount: 350.00 },
-        { category: "Shopping", amount: 500.25 },
-        { category: "Transport", amount: 150.00 },
-    ]
-}, null, 2);
+// User data based on the financial intelligence data
+const availableUsers = [
+  { id: "1111111111", name: "Basic Saver" },
+  { id: "2222222222", name: "Wealthy Investor" },
+  { id: "3333333333", name: "Moderate Investor" },
+  { id: "4444444444", name: "Multi-bank User" },
+  { id: "5555555555", name: "Standard User" },
+  { id: "6666666666", name: "Investment Expert" },
+  { id: "7777777777", name: "High Debt User" },
+  { id: "8888888888", name: "SIP Investor" },
+  { id: "9999999999", name: "Conservative User" },
+  { id: "1010101010", name: "Gold Investor" },
+];
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
+  const [selectedUserId, setSelectedUserId] = useState("5555555555");
   const [isPending, startTransition] = useTransition();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  const selectedUser = availableUsers.find(user => user.id === selectedUserId);
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,9 +48,9 @@ export default function ChatPage() {
 
     startTransition(async () => {
       try {
-        // Call backend /query endpoint with user_id, session_id, and query
+        // Call backend /query endpoint with selected user_id, session_id, and query
         const payload = {
-          user_id: "5555555555", // Replace with dynamic user_id if needed
+          user_id: selectedUserId,
           session_id: undefined, // Add session_id if available
           query: input,
         };
@@ -72,6 +74,11 @@ export default function ChatPage() {
     });
   };
 
+  // Clear messages when user changes
+  useEffect(() => {
+    setMessages([]);
+  }, [selectedUserId]);
+
   useEffect(() => {
     if (scrollAreaRef.current) {
         setTimeout(() => {
@@ -86,7 +93,24 @@ export default function ChatPage() {
   return (
     <div className="flex flex-col h-[calc(100vh-120px)]">
       <Card className="flex-1 flex flex-col">
-        <CardContent className="flex-1 flex flex-col p-4">
+        <CardHeader className="pb-3">
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-lg">Financial Assistant</CardTitle>
+            <Select value={selectedUserId} onValueChange={setSelectedUserId}>
+              <SelectTrigger className="w-48">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {availableUsers.map((user) => (
+                  <SelectItem key={user.id} value={user.id}>
+                    {user.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </CardHeader>
+        <CardContent className="flex-1 flex flex-col p-4 pt-0">
           <ScrollArea className="flex-1" ref={scrollAreaRef}>
             <div className="space-y-4 pr-4">
               <div className="flex items-start gap-3">
@@ -97,7 +121,7 @@ export default function ChatPage() {
                 </Avatar>
                 <div className="bg-muted rounded-lg p-3 max-w-[85%]">
                   <p className="text-sm">
-                    Hello! I'm your Hum-Safar Assistant. Ask me anything about your finances.
+                    Hello! I'm your Hum-Safar Assistant for {selectedUser?.name}. How can I help with your finances?
                   </p>
                 </div>
               </div>

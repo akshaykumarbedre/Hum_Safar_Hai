@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useSearchParams } from "next/navigation";
@@ -145,14 +144,34 @@ export default function PortfolioPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchPortfolioData = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const user_id = currentView; // Using the same user ID as dashboard
+  const fetchPortfolioData = async (user_id: string) => {
+    setLoading(true);
+    setError(null);
+    try {
+      console.log("Fetching portfolio data for user:", user_id);
 
-        // Fetch investment portfolio data
+      if (user_id === "couple") {
+        // Fetch data for both users and aggregate
+        const [rohanResponse, priyaResponse] = await Promise.all([
+          fetch(`http://localhost:8000/tools/net_worth/1212121212`),
+          fetch(`http://localhost:8000/tools/net_worth/2222222222`)
+        ]);
+
+        if (!rohanResponse.ok || !priyaResponse.ok) {
+          throw new Error('Failed to fetch portfolio data for couple view');
+        }
+
+        const rohanResult = await rohanResponse.json();
+        const priyaResult = await priyaResponse.json();
+        
+        console.log("Rohan's Portfolio Data:", rohanResult);
+        console.log("Priya's Portfolio Data:", priyaResult);
+        
+        // Aggregate the data
+        const aggregatedData = aggregatePortfolioData(rohanResult, priyaResult);
+        setPortfolioData(aggregatedData);
+      } else {
+        // Fetch data for individual user
         const response = await fetch(`http://localhost:8000/tools/net_worth/${user_id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch portfolio data');
@@ -161,121 +180,254 @@ export default function PortfolioPage() {
         
         console.log("Portfolio Data:", result);
         
-        // Extract portfolio data from the response
-        const get_processed_investment_portfolio = result.get_processed_investment_portfolio;
-        const portfolioDiversification = result.get_portfolio_diversification;
-        const performanceSummary = result.get_portfolio_performance_summary;
-        
-        console.log("Investment Portfolio:", get_processed_investment_portfolio);
-        console.log("Stock Holdings:", get_processed_investment_portfolio?.stock_holdings);
-        console.log("Mutual Fund Holdings:", get_processed_investment_portfolio?.mutual_fund_holdings);
-        
-        // Extract ETF holdings from the raw net worth data
-        let etfHoldings: any[] = [];
-        if (result.accounts) {
-          Object.values(result.accounts).forEach((account: any) => {
-            if (account.etfSummary?.holdingsInfo) {
-              etfHoldings = account.etfSummary.holdingsInfo.map((holding: any) => ({
-                isin: holding.isin,
-                isinDescription: holding.isinDescription,
-                units: holding.units || holding.totalNumberUnits,
-                nav: holding.nav,
-                lastNavDate: holding.lastNavDate,
-                currentValue: holding.nav ? (parseFloat(holding.nav.units) + (holding.nav.nanos / 1000000000)) * (holding.units || holding.totalNumberUnits) : 0
-              }));
-            }
-          });
-        }
-        
-        // Calculate overall gain and percentage using portfolio diversification data
-        const currentValue = portfolioDiversification?.total_portfolio_value || 0;
-        const totalInvested = performanceSummary?.total_invested || 0;
-        const overallGain = currentValue - totalInvested;
-        const overallGainPercentage = totalInvested > 0 ? (overallGain / totalInvested) * 100 : 0;
-        
-        // Create asset allocation data from portfolio diversification
-        const assetAllocation = portfolioDiversification?.asset_allocation?.map((item: any) => ({
-          name: item.category,
-          value: item.amount,
-          percentage: item.percentage,
-          formatted_amount: item.formatted_amount,
-          color: getAssetColor(item.category)
-        })) || [];
-        
-        // Helper function to assign colors based on asset category
-        function getAssetColor(category: string): string {
-          const colorMap: { [key: string]: string } = {
-            'Cash & Bank': 'hsl(var(--chart-1))',
-            'EPF': 'hsl(var(--chart-2))',
-            'Indian Stocks': 'hsl(var(--chart-3))',
-            'Mutual Funds': 'hsl(var(--chart-4))',
-            'US Stocks': 'hsl(var(--chart-5))',
-            'ETFs': 'hsl(var(--chart-6))'
-          };
-          return colorMap[category] || 'hsl(var(--chart-1))';
-        }
-        
-        // Create SIP data (mock data for now since it's not in the API response)
-        // const sips = [
-        //   { name: "Nifty 50 Index Fund", amount: 5000, nextDueDate: "2024-08-05" },
-        //   { name: "Parag Parikh Flexi Cap", amount: 3000, nextDueDate: "2024-08-10" },
-        // ];
-        
-        // Calculate portfolio summary values from actual holdings data
-        const stockValue = assetAllocation
-          .filter((item: any) => item.name === 'Indian Stocks')
-          .reduce((sum: number, item: any) => sum + item.value, 0);
-        
-        const mfValue = assetAllocation
-          .filter((item: any) => item.name === 'Mutual Funds')
-          .reduce((sum: number, item: any) => sum + item.value, 0);
-        
-        const etfValue = etfHoldings.reduce((sum: number, etf: any) => sum + etf.currentValue, 0);
-        
-        // Use actual counts from the API data
-        const stockCount = get_processed_investment_portfolio?.stock_holdings?.length || 0;
-        const mfCount = get_processed_investment_portfolio?.mutual_fund_holdings?.length || 0;
-        
-        setPortfolioData({
-          totalInvestment: totalInvested,
-          currentValue: currentValue, // Use the API's total_portfolio_value from portfolio diversification
-          overallGain: overallGain,
-          overallGainPercentage: overallGainPercentage,
-          assetAllocation: assetAllocation,
-          holdings: [], // We'll use separate stockHoldings, mutualFundHoldings, and etfHoldings
-          stockHoldings: get_processed_investment_portfolio?.stock_holdings || [],
-          mutualFundHoldings: get_processed_investment_portfolio?.mutual_fund_holdings || [],
-          etfHoldings: etfHoldings,
-          portfolioSummary: {
-            total_stock_value: stockValue,
-            total_mutual_fund_current: mfValue,
-            total_portfolio_value: currentValue,
-            stock_count: stockCount,
-            mutual_fund_count: mfCount,
-            formatted_total_portfolio: `₹${currentValue.toLocaleString()}`,
-            formatted_stock_value: `₹${stockValue.toLocaleString()}`,
-            formatted_mf_current: `₹${mfValue.toLocaleString()}`
-          },
-          portfolioPerformance: performanceSummary || {
-            total_invested: 0,
-            current_value: 0,
-            absolute_gain: 0,
-            overall_xirr: 0
+        // Process individual user data
+        const processedData = processIndividualPortfolioData(result);
+        setPortfolioData(processedData);
+      }
+
+    } catch (err: any) {
+      console.error("Error fetching portfolio data:", err);
+      setError(err.message || "An unknown error occurred");
+      setPortfolioData(initialPortfolioData);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const aggregatePortfolioData = (rohanData: any, priyaData: any) => {
+    // Helper function to safely get value or 0
+    const safeValue = (value: any) => value || 0;
+    
+    // Aggregate portfolio diversification
+    const rohanDiversification = rohanData.get_portfolio_diversification;
+    const priyaDiversification = priyaData.get_portfolio_diversification;
+    
+    const combinedCurrentValue = safeValue(rohanDiversification?.total_portfolio_value) + safeValue(priyaDiversification?.total_portfolio_value);
+    
+    // Aggregate performance summary
+    const rohanPerformance = rohanData.get_portfolio_performance_summary;
+    const priyaPerformance = priyaData.get_portfolio_performance_summary;
+    
+    const combinedTotalInvested = safeValue(rohanPerformance?.total_invested) + safeValue(priyaPerformance?.total_invested);
+    const combinedOverallGain = combinedCurrentValue - combinedTotalInvested;
+    const combinedOverallGainPercentage = combinedTotalInvested > 0 ? (combinedOverallGain / combinedTotalInvested) * 100 : 0;
+    
+    // Aggregate asset allocation
+    const rohanAssets = rohanDiversification?.asset_allocation || [];
+    const priyaAssets = priyaDiversification?.asset_allocation || [];
+    
+    const assetMap = new Map();
+    
+    // Add Rohan's assets
+    rohanAssets.forEach((asset: any) => {
+      assetMap.set(asset.category, {
+        name: asset.category,
+        value: safeValue(asset.amount),
+        color: getAssetColor(asset.category)
+      });
+    });
+    
+    // Add Priya's assets
+    priyaAssets.forEach((asset: any) => {
+      const existing = assetMap.get(asset.category);
+      if (existing) {
+        existing.value += safeValue(asset.amount);
+      } else {
+        assetMap.set(asset.category, {
+          name: asset.category,
+          value: safeValue(asset.amount),
+          color: getAssetColor(asset.category)
+        });
+      }
+    });
+    
+    const combinedAssetAllocation = Array.from(assetMap.values());
+    
+    // Aggregate holdings
+    const rohanInvestments = rohanData.get_processed_investment_portfolio;
+    const priyaInvestments = priyaData.get_processed_investment_portfolio;
+    
+    const combinedStockHoldings = [
+      ...(rohanInvestments?.stock_holdings || []),
+      ...(priyaInvestments?.stock_holdings || [])
+    ];
+    
+    const combinedMutualFundHoldings = [
+      ...(rohanInvestments?.mutual_fund_holdings || []),
+      ...(priyaInvestments?.mutual_fund_holdings || [])
+    ];
+    
+    // Aggregate ETF holdings
+    let combinedEtfHoldings: any[] = [];
+    [rohanData, priyaData].forEach((userData) => {
+      if (userData.accounts) {
+        Object.values(userData.accounts).forEach((account: any) => {
+          if (account.etfSummary?.holdingsInfo) {
+            const etfHoldings = account.etfSummary.holdingsInfo.map((holding: any) => ({
+              isin: holding.isin,
+              isinDescription: holding.isinDescription,
+              units: holding.units || holding.totalNumberUnits,
+              nav: holding.nav,
+              lastNavDate: holding.lastNavDate,
+              currentValue: holding.nav ? (parseFloat(holding.nav.units) + (holding.nav.nanos / 1000000000)) * (holding.units || holding.totalNumberUnits) : 0
+            }));
+            combinedEtfHoldings = [...combinedEtfHoldings, ...etfHoldings];
           }
         });
-
-      } catch (err: any) {
-        setError(err.message || "An unknown error occurred");
-        setPortfolioData(initialPortfolioData);
-      } finally {
-        setLoading(false);
+      }
+    });
+    
+    // Calculate portfolio summary values
+    const stockValue = combinedAssetAllocation
+      .filter((item: any) => item.name === 'Indian Stocks')
+      .reduce((sum: number, item: any) => sum + item.value, 0);
+    
+    const mfValue = combinedAssetAllocation
+      .filter((item: any) => item.name === 'Mutual Funds')
+      .reduce((sum: number, item: any) => sum + item.value, 0);
+    
+    return {
+      totalInvestment: combinedTotalInvested,
+      currentValue: combinedCurrentValue,
+      overallGain: combinedOverallGain,
+      overallGainPercentage: combinedOverallGainPercentage,
+      assetAllocation: combinedAssetAllocation,
+      holdings: [],
+      stockHoldings: combinedStockHoldings,
+      mutualFundHoldings: combinedMutualFundHoldings,
+      etfHoldings: combinedEtfHoldings,
+      portfolioSummary: {
+        total_stock_value: stockValue,
+        total_mutual_fund_current: mfValue,
+        total_portfolio_value: combinedCurrentValue,
+        stock_count: combinedStockHoldings.length,
+        mutual_fund_count: combinedMutualFundHoldings.length,
+        formatted_total_portfolio: `₹${combinedCurrentValue.toLocaleString()}`,
+        formatted_stock_value: `₹${stockValue.toLocaleString()}`,
+        formatted_mf_current: `₹${mfValue.toLocaleString()}`
+      },
+      portfolioPerformance: {
+        total_invested: combinedTotalInvested,
+        current_value: combinedCurrentValue,
+        absolute_gain: combinedOverallGain,
+        overall_xirr: 0 // Will need to calculate combined XIRR if needed
       }
     };
+  };
 
-    fetchPortfolioData();
+  const processIndividualPortfolioData = (result: any) => {
+    // ...existing code for processing individual user data...
+    const get_processed_investment_portfolio = result.get_processed_investment_portfolio;
+    const portfolioDiversification = result.get_portfolio_diversification;
+    const performanceSummary = result.get_portfolio_performance_summary;
+    
+    // Extract ETF holdings from the raw net worth data
+    let etfHoldings: any[] = [];
+    if (result.accounts) {
+      Object.values(result.accounts).forEach((account: any) => {
+        if (account.etfSummary?.holdingsInfo) {
+          etfHoldings = account.etfSummary.holdingsInfo.map((holding: any) => ({
+            isin: holding.isin,
+            isinDescription: holding.isinDescription,
+            units: holding.units || holding.totalNumberUnits,
+            nav: holding.nav,
+            lastNavDate: holding.lastNavDate,
+            currentValue: holding.nav ? (parseFloat(holding.nav.units) + (holding.nav.nanos / 1000000000)) * (holding.units || holding.totalNumberUnits) : 0
+          }));
+        }
+      });
+    }
+    
+    // Calculate overall gain and percentage using portfolio diversification data
+    const currentValue = portfolioDiversification?.total_portfolio_value || 0;
+    const totalInvested = performanceSummary?.total_invested || 0;
+    const overallGain = currentValue - totalInvested;
+    const overallGainPercentage = totalInvested > 0 ? (overallGain / totalInvested) * 100 : 0;
+    
+    // Create asset allocation data from portfolio diversification
+    const assetAllocation = portfolioDiversification?.asset_allocation?.map((item: any) => ({
+      name: item.category,
+      value: item.amount,
+      percentage: item.percentage,
+      formatted_amount: item.formatted_amount,
+      color: getAssetColor(item.category)
+    })) || [];
+    
+    // Helper function to assign colors based on asset category
+    function getAssetColor(category: string): string {
+      const colorMap: { [key: string]: string } = {
+        'Cash & Bank': 'hsl(var(--chart-1))',
+        'EPF': 'hsl(var(--chart-2))',
+        'Indian Stocks': 'hsl(var(--chart-3))',
+        'Mutual Funds': 'hsl(var(--chart-4))',
+        'US Stocks': 'hsl(var(--chart-5))',
+        'ETFs': 'hsl(var(--chart-6))'
+      };
+      return colorMap[category] || 'hsl(var(--chart-1))';
+    }
+    
+    // Calculate portfolio summary values from actual holdings data
+    const stockValue = assetAllocation
+      .filter((item: any) => item.name === 'Indian Stocks')
+      .reduce((sum: number, item: any) => sum + item.value, 0);
+    
+    const mfValue = assetAllocation
+      .filter((item: any) => item.name === 'Mutual Funds')
+      .reduce((sum: number, item: any) => sum + item.value, 0);
+    
+    const etfValue = etfHoldings.reduce((sum: number, etf: any) => sum + etf.currentValue, 0);
+    
+    // Use actual counts from the API data
+    const stockCount = get_processed_investment_portfolio?.stock_holdings?.length || 0;
+    const mfCount = get_processed_investment_portfolio?.mutual_fund_holdings?.length || 0;
+    
+    return {
+      totalInvestment: totalInvested,
+      currentValue: currentValue,
+      overallGain: overallGain,
+      overallGainPercentage: overallGainPercentage,
+      assetAllocation: assetAllocation,
+      holdings: [],
+      stockHoldings: get_processed_investment_portfolio?.stock_holdings || [],
+      mutualFundHoldings: get_processed_investment_portfolio?.mutual_fund_holdings || [],
+      etfHoldings: etfHoldings,
+      portfolioSummary: {
+        total_stock_value: stockValue,
+        total_mutual_fund_current: mfValue,
+        total_portfolio_value: currentValue,
+        stock_count: stockCount,
+        mutual_fund_count: mfCount,
+        formatted_total_portfolio: `₹${currentValue.toLocaleString()}`,
+        formatted_stock_value: `₹${stockValue.toLocaleString()}`,
+        formatted_mf_current: `₹${mfValue.toLocaleString()}`
+      },
+      portfolioPerformance: performanceSummary || {
+        total_invested: 0,
+        current_value: 0,
+        absolute_gain: 0,
+        overall_xirr: 0
+      }
+    };
+  };
+
+  // Helper function to assign colors based on asset category
+  const getAssetColor = (category: string): string => {
+    const colorMap: { [key: string]: string } = {
+      'Cash & Bank': 'hsl(var(--chart-1))',
+      'EPF': 'hsl(var(--chart-2))',
+      'Indian Stocks': 'hsl(var(--chart-3))',
+      'Mutual Funds': 'hsl(var(--chart-4))',
+      'US Stocks': 'hsl(var(--chart-5))',
+      'ETFs': 'hsl(var(--chart-6))'
+    };
+    return colorMap[category] || 'hsl(var(--chart-1))';
+  };
+
+  // Single effect that handles both initial load and view changes
+  useEffect(() => {
+    console.log("Effect triggered - currentView:", currentView);
+    fetchPortfolioData(currentView);
   }, [currentView]);
-
-  // const totalSipAmount = portfolioData.sips.reduce((acc, sip) => acc + sip.amount, 0);
 
   if (error) {
     return <div className="text-red-500 text-center">Error: {error}</div>
